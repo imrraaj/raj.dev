@@ -1,11 +1,10 @@
 ---
-import {SITE_TITLE,SITE_DESCRIPTION} from "../config.ts";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config.ts";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.jsx";
-import BaseBody from '../components/BaseBody.jsx';
-
+import BaseBody from "../components/BaseBody.jsx";
 ---
 
 <!DOCTYPE html>
@@ -32,18 +31,35 @@ import BaseBody from '../components/BaseBody.jsx';
         I am currently enrolled in Nirma University pursuing my Bechlor's degree
         in Comouter Science Engineering. Apart from code and study (which takes
         major time in my day), in my free time I enjoy listening to music,
-        reading books and scrolling my <a
-          href="https://twitter.com/imrraaj">Twitter</a
+        reading books and scrolling my <a href="https://twitter.com/imrraaj"
+          >Twitter</a
         >.
       </p>
       <br />
       <section>
         <h2 class="font-bold text-3xl my-4">Things I've Built</h2>
         <div class="grid sm:grid-cols-2 gap-4">
-          <ProjectCard title="cloudNotes" desc="A" tech="JavaScript" />
-          <ProjectCard title="raj.dev" desc="Boring personal site built using astro" tech="Astro" />
-          <ProjectCard title="Netflix Clone" desc="Impersonating Netflix with css skills" tech="React" />
-          <ProjectCard title="Silver Journey" desc="Physics emulated particle system built with HTML canvas" tech="JavaScript" link="https://github.com/imrraaj/silver-journey-particle-system" />
+          <ProjectCard
+            title="cloudNotes"
+            desc="Why remember anything when you can write once and access it everywhere?"
+            tech="MERN"
+          />
+          <ProjectCard
+            title="raj.dev"
+            desc="Boring personal site built using astro"
+            tech="Astro"
+          />
+          <ProjectCard
+            title="Netflix Clone"
+            desc="Impersonating Netflix with css skills"
+            tech="React"
+          />
+          <ProjectCard
+            title="Silver Journey"
+            desc="Physics emulated particle system built with HTML canvas"
+            tech="JavaScript"
+            link="https://github.com/imrraaj/silver-journey-particle-system"
+          />
         </div>
       </section>
 
@@ -52,7 +68,11 @@ import BaseBody from '../components/BaseBody.jsx';
         <h2 class="font-bold text-3xl my-2 underline">Experience</h2>
         <div class="my-2">
           <h3>Booksapp</h3>
-          <p>Building a React-Native cross platform 'booksapp' (a startup incubated under Nirma University) application aims to provide solution for anonymous exchange of books between readers</p>
+          <p>
+            Building a React-Native cross platform 'booksapp' (a startup
+            incubated under Nirma University) application aims to provide
+            solution for anonymous exchange of books between readers
+          </p>
         </div>
       </section>
       <br />
@@ -73,4 +93,5 @@ import BaseBody from '../components/BaseBody.jsx';
     </main>
     <Footer />
   </BaseBody>
+
 </html>
