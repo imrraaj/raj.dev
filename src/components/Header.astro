@@ -1,0 +1,26 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../config";
+---
+
+<header class="my-8">
+  <h2 class="font-extrabold text-2xl flex gap-4 my-2 items-center">
+    <img
+      class="w-[50px] aspect-square rounded-full"
+      src="https://avatars.githubusercontent.com/u/71687258"
+      alt="Profile Image of Raj Patel"
+    />
+    {SITE_TITLE} ✨
+  </h2>
+  <nav class="my-4">
+    <HeaderLink href="/">Home</HeaderLink>
+    <HeaderLink href="/now">Now?</HeaderLink>
+    <HeaderLink href="/books">Books</HeaderLink>
+    <HeaderLink href="mailto:rajpatel10953@gmail.com" target="_blank"
+      >Email</HeaderLink
+    >
+    <HeaderLink href="https://github.com/imrraaj" target="_blank"
+      >GitHub</HeaderLink
+    >
+  </nav>
+</header>
