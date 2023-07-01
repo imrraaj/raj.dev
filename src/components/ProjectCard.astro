@@ -1,0 +1,31 @@
+---
+interface CardProps {
+  title: string;
+  desc: string;
+  link: string;
+  techs: Array<string>;
+}
+const { title, desc, link, techs } = Astro.props as CardProps;
+---
+
+<article
+  class="p-4 border-2 rounded-md relative transition hover:scale-105 flex flex-col justify-between"
+>
+  <div class="mb-4 w-full">
+    <h3 class="text-primary font-heading font-black text-xl">
+      <a class="title-link cursor-pointer" href={link} target="_blank">
+        {title}
+      </a>
+    </h3>
+    <p class="text-sm break-words">{desc}</p>
+  </div>
+  <div class="flex gap-2">
+    {
+      techs.map((tech) => (
+        <div class="text-sm bg-primary w-min px-2 rounded-sm text-background font-bold">
+          {tech}
+        </div>
+      ))
+    }
+  </div>
+</article>

@@ -4,23 +4,28 @@ import { SITE_TITLE } from "../config";
 ---
 
 <header class="my-8">
-  <h2 class="font-extrabold text-2xl flex gap-4 my-2 items-center">
-    <img
-      class="w-[50px] aspect-square rounded-full"
-      src="https://avatars.githubusercontent.com/u/71687258"
-      alt="Profile Image of Raj Patel"
-    />
-    {SITE_TITLE} ✨
-  </h2>
+  <a href="/">
+    <div class="flex gap-4 my-2 items-center">
+      <img
+        class="w-[60px] aspect-square rounded-full"
+        src="https://avatars.githubusercontent.com/u/71687258"
+        alt="Profile Image of Raj Patel"
+      />
+      <h2 class="font-black font-heading text-primary text-3xl">
+        {SITE_TITLE}
+      </h2>
+    </div>
+  </a>
   <nav class="my-4">
     <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/now">Now?</HeaderLink>
     <HeaderLink href="/books">Books</HeaderLink>
-    <HeaderLink href="mailto:rajpatel10953@gmail.com" target="_blank"
-      >Email</HeaderLink
-    >
-    <HeaderLink href="https://github.com/imrraaj" target="_blank"
-      >GitHub</HeaderLink
-    >
+    <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="mailto:rajpatel10953@gmail.com" target="_blank">
+      Email
+    </HeaderLink>
+    <HeaderLink href="https://github.com/imrraaj" target="_blank">
+      GitHub
+    </HeaderLink>
   </nav>
 </header>

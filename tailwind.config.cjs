@@ -2,7 +2,27 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				'text': '#f1faee',
+				'background': '#22223b',
+				'primary': '#a8dadc',
+				'secondary': '#f2e9e4',
+				'accent': '#c9ada7',
+				// 'text': '#f6fff8',
+				// 'background': '#233d4d',
+				// 'primary': '#fdfcdc',
+				// 'secondary': '#a8dadc',
+				// 'accent': '#f07167',
+
+
+			},
+			fontFamily: {
+				'body': "'Inconsolata', sans- serif",
+				'heading': "'Karla', serif"
+			}
+		},
+
 	},
 	plugins: [],
 }

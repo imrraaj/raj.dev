@@ -1,0 +1,22 @@
+---
+import PageLayout from "./PageLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<PageLayout title={frontmatter.title} descripton={frontmatter.description}>
+    <article>
+        <header class="my-4">
+            <h1 class="text-3xl font-black leading-relaxed">
+                {frontmatter.title}
+            </h1>
+        </header>
+        <div
+            class="prose text-justify max-w-none prose-img:rounded-xl prose-img:mx-auto prose-headings:underline prose-a:text-violet-500 prose-strong:font-black"
+        >
+            <slot />
+        </div>
+    </article>
+    <a href="/blog" class="text-primary hover:underline my-4 block">
+        ← Back to home
+    </a>
+</PageLayout>
