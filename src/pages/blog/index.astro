@@ -15,7 +15,7 @@ const posts = await Astro.glob("./*md");
                         </p>
                     </a>
                     <span class="bg-secondary text-background px-3 rounded-sm font-bold text-sm">
-                        {post.frontmatter.date}
+                        {post.frontmatter.pubDate}
                     </span>
                     <p class="my-2">{post.frontmatter.description}</p>
                 </div>
