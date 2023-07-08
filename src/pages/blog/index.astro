@@ -1,6 +1,12 @@
 ---
 import PageLayout from "../../layout/PageLayout.astro";
-const posts = await Astro.glob("./*md");
+const unsorted_posts = await Astro.glob("./*md");
+const posts = unsorted_posts.sort((a, b) => {
+    const da = new Date(a.frontmatter.pubDate);
+    const db = new Date(b.frontmatter.pubDate);
+    console.log({ da, db });
+    return db.getTime() - da.getTime();
+});
 ---
 
 <PageLayout title="Blogs">
