@@ -5,9 +5,7 @@ pubDate: 06-07-2023
 description: Great ideas are hard to come by and extremely hard to generate by your own. Not to mention the sheer amout of knowledge required. In this I have discussed the concept of ideas and why I am struggling with it.
 ---
 
-# Topic of deep disscussion
-
-Ideas. If you read 5 minutes a day you are in the top 1% says Naval. It's hard to read thing and even more hard to find a book or a topic that you like and want to read more. How do you find a good book, a good enough topic to start and make sure that you go slowly deep into the topic or else you pick up Nietzsche on the first day of reading philosophy, even god can not save you from not reading the book. hahah. you got my reference right. right!?.
+_Ideas_. If you read 5 minutes a day you are in the top 1% says Naval. It's hard to read thing and even more hard to find a book or a topic that you like and want to read more. How do you find a good book, a good enough topic to start and make sure that you go slowly deep into the topic or else you pick up Nietzsche on the first day of reading philosophy, even god can not save you from not reading the book. hahah. you got my reference right. right!?.
 
 I personally feel very hard to find a good novel or a science fiction or even a good non fiction classic that builts the theme around my current level of understanding. I remember a thing let me quote Jordan B Peterson
 
