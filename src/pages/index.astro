@@ -3,7 +3,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 import PageLayout from "../layout/PageLayout.astro";
 ---
 
-<PageLayout title="Home Page">
+<PageLayout title="Personal Blog of Raj Patel | Home">
   <main>
     <h2 class="text-accent font-heading font-black text-lg">Hii there!,</h2>
     <h1 class="text-primary font-heading font-black md:text-4xl text-3xl mb-2">
@@ -11,9 +11,8 @@ import PageLayout from "../layout/PageLayout.astro";
     </h1>
     <br />
     <p>
-      I am 19 y/o wannabe quote-unquote Developer. I am interested in <em
-        >web development</em
-      >,
+      I am {new Date().getFullYear() - 2003 + 1} y/o wannabe quote-unquote Developer.
+      I am interested in <em>web development</em>,
       <em>serverless technologies</em> and I live on the Edge (pun intended).
     </p>
     <br />
@@ -21,7 +20,10 @@ import PageLayout from "../layout/PageLayout.astro";
       I am currently enrolled in Nirma University pursuing my Bechlor's degree
       in Computer Science Engineering. Apart from code and study (which takes
       major time in my day), in my free time I enjoy listening to music, reading
-      books and scrolling my <a href="https://twitter.com/imrraaj">Twitter</a>.
+      books and scrolling my <a
+        href="https://twitter.com/imrraaj"
+        class="border-b-primary border-b-4">Twitter</a
+      >.
     </p>
     <br />
     <section>
