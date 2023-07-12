@@ -9,13 +9,6 @@ module.exports = {
 				'primary': '#a8dadc',
 				'secondary': '#f2e9e4',
 				'accent': '#c9ada7',
-				// 'text': '#f6fff8',
-				// 'background': '#233d4d',
-				// 'primary': '#fdfcdc',
-				// 'secondary': '#a8dadc',
-				// 'accent': '#f07167',
-
-
 			},
 			fontFamily: {
 				'body': "'Inconsolata', sans- serif",
@@ -24,5 +17,7 @@ module.exports = {
 		},
 
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 }

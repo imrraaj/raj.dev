@@ -1,12 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&family=Karla:wght@400;500;600;700;800&display=swap");
 :root {
-  --text: #0e0f06;
-  --background: #fafbf4;
-  --primary-button: #338084;
-  --secondary-button: #f1f2de;
-  --accent: #843380;
-
   --ff-body: "Inconsolata", sans-serif;
   --ff-heading: "Karla", serif;
 }
@@ -49,9 +43,14 @@ pre > code {
   all: unset;
 }
 blockquote {
-  border: 1px solid #999;
-  color: #222;
-  padding: 2px 0px 2px 20px;
-  margin: 0px;
-  font-style: italic;
+  @apply italic m-0 border-l-8 p-4 border-gray-500 font-bold;
+}
+
+.post-body a {
+  text-underline-offset: 5px;
+  @apply underline text-secondary;
+}
+
+.post-body a:hover {
+  @apply text-accent;
 }

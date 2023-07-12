@@ -3,6 +3,7 @@ layout: ../../layout/PostLayout.astro
 title: Remembering won't help you either.
 pubDate: 09-07-2023
 description: So it's not worth remembering?
+published: true
 ---
 
 You often forget something important that you should be remembering in your daily conscience, but you do not? Everyone undergoes the same more or less. I tend to think the same. Often I wonder why I can't remember 'em all? But it doesn't matter. Let me tell you a framework more like an advice I took literally from a tv character but helped me eh?

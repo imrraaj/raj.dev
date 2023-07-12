@@ -9,9 +9,12 @@ const { frontmatter } = Astro.props;
             <h1 class="text-3xl font-black leading-relaxed">
                 {frontmatter.title}
             </h1>
+            <p class="text-sm text-secondary font-heading">
+                Published On: {frontmatter.pubDate}
+            </p>
         </header>
         <div
-            class="prose text-justify prose-img:rounded-xl prose-img:mx-auto prose-headings:underline prose-a:text-violet-500 prose-strong:font-black space-y-8"
+            class="post-body prose max-w-[85ch] prose-blockquote:text-white text-white prose-headings:text-accent prose-headings:font-black prose-strong:text-white prose-strong:font-bold text-justify space-y-8 prose-img:rounded-xl prose-img:mx-auto"
         >
             <slot />
         </div>

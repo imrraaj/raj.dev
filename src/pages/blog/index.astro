@@ -1,10 +1,10 @@
 ---
 import PageLayout from "../../layout/PageLayout.astro";
-const unsorted_posts = await Astro.glob("./*md");
+const astro_posts = await Astro.glob("./*md");
+const unsorted_posts = astro_posts.filter((o) => o.frontmatter.published);
 const posts = unsorted_posts.sort((a, b) => {
     const da = new Date(a.frontmatter.pubDate);
     const db = new Date(b.frontmatter.pubDate);
-    console.log({ da, db });
     return db.getTime() - da.getTime();
 });
 ---
