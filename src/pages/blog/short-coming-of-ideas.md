@@ -1,7 +1,7 @@
 ---
 layout: ../../layout/PostLayout.astro
 title: Short coming of ideas.
-pubDate: 06-07-2023
+date: 06-07-2023
 description: Great ideas are hard to come by and extremely hard to generate by your own. Not to mention the sheer amout of knowledge required. In this I have discussed the concept of ideas and why I am struggling with it.
 published: true
 ---

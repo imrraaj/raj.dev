@@ -1,7 +1,7 @@
 ---
 layout: ../../layout/PostLayout.astro
 title: Remembering won't help you either.
-pubDate: 09-07-2023
+date: 09-07-2023
 description: So it's not worth remembering?
 published: true
 ---

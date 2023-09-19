@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../config";
+import { Mail, Github, TwitterIcon } from "lucide-react";
 ---
 
 <header class="my-8">
@@ -8,24 +9,29 @@ import { SITE_TITLE } from "../config";
     <div class="flex gap-4 my-2 items-center">
       <img
         class="w-[60px] aspect-square rounded-full"
-        src="/banner.png"
-        alt="An image of two men talking"
+        src="https://pbs.twimg.com/profile_images/1645135556127649792/TG-AySRb_400x400.jpg"
+        alt="An image from Raj's twitter profile"
       />
-      <h2 class="font-black font-heading text-primary text-3xl">
-        {SITE_TITLE}
-      </h2>
+      <h2 class="font-black text-2xl">Raj's Blog</h2>
     </div>
   </a>
-  <nav class="my-4">
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/now">Now?</HeaderLink>
-    <HeaderLink href="/books">Books</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="mailto:rajpatel10953@gmail.com" target="_blank">
-      Email
-    </HeaderLink>
-    <HeaderLink href="https://github.com/imrraaj" target="_blank">
-      GitHub
-    </HeaderLink>
+  <nav class="my-4 flex items-center justify-between">
+    <div class="flex gap-4">
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/books">Books</HeaderLink>
+      <HeaderLink href="/blog">Blog</HeaderLink>
+    </div>
+    <div class="flex gap-4">
+      <HeaderLink href="mailto:rajpatel10953@gmail.com" target="_blank">
+        <Mail />
+      </HeaderLink>
+
+      <HeaderLink href="https://github.com/imrraaj" target="_blank">
+        <Github />
+      </HeaderLink>
+      <HeaderLink href="https://x.com/imrraaj" target="_blank">
+        <TwitterIcon />
+      </HeaderLink>
+    </div>
   </nav>
 </header>

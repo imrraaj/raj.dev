@@ -1,7 +1,7 @@
 ---
 layout: ../../layout/PostLayout.astro
 title: Ideas to think upon.
-pubDate: 12-07-2023
+date: 12-07-2023
 description: Let's just discuss ideas.
 published: true
 ---

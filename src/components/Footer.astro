@@ -1,46 +1,15 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
+import { RssIcon } from "lucide-react";
 ---
 
-<footer class="border-t-2 border-slate-600 text-center py-4 mt-4">
-  This website does not ask for cookies because We don't do that here
-
-  <div>
-    <HeaderLink href="/rss.xml">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-5 h-5"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-        ></path>
-      </svg>
-
-      RSS</HeaderLink
-    >
-    <HeaderLink href="/sitemap.xml">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-5 h-5"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"
-        ></path>
-      </svg>
-
-      Sitemap</HeaderLink
-    >
-  </div>
+<hr />
+<footer class="text-center py-4 text-sm flex justify-between">
+  Have a great day
+  <a
+    href="/rss.xml"
+    class="inline-flex gap-2 text-sm justify-center items-center"
+  >
+    <RssIcon width={18} height={18} />
+    RSS
+  </a>
 </footer>

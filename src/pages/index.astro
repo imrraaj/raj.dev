@@ -4,94 +4,93 @@ import PageLayout from "../layout/PageLayout.astro";
 ---
 
 <PageLayout title="Personal Blog of Raj Patel | Home">
-  <main>
-    <h2 class="text-accent font-heading font-black text-lg">Hii there!,</h2>
-    <h1 class="text-primary font-heading font-black md:text-4xl text-3xl mb-2">
-      I love to build cool ❄️, blazingly fast ⚡ things!
-    </h1>
-    <br />
-    <p>
-      I am {new Date().getFullYear() - 2003 + 1} y/o wannabe quote-unquote Developer.
-      I am interested in <em>web development</em>,
-      <em>serverless technologies</em> and I live on the Edge (pun intended).
-    </p>
-    <br />
-    <p>
-      I am currently enrolled in Nirma University pursuing my Bechlor's degree
-      in Computer Science Engineering. Apart from code and study (which takes
-      major time in my day), in my free time I enjoy listening to music, reading
-      books and scrolling my <a
-        href="https://twitter.com/imrraaj"
-        class="border-b-primary border-b-4">Twitter</a
-      >.
-    </p>
-    <br />
-    <section>
-      <h2 class="text-3xl my-4 text-primary">
-        Take a look at the things I've Built
-      </h2>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <ProjectCard
-          title="cloudNotes"
-          desc="Why remember anything when you can write once and access it everywhere?"
-          techs={["React", "NodeJS", "MongoDB"]}
-          link="https://notesontheweb.vercel.app"
-        />
-        <ProjectCard
-          title="Fexer"
-          desc="Lexer implementation using Finite State Machines."
-          techs={["C++"]}
-          link="https://github.com/imrraaj/fexer"
-        />
-        <ProjectCard
-          title="raj.dev"
-          desc="Boring personal site built using astro"
-          techs={["Astro", "Tailwind"]}
-          link="https://github.com/imrraaj/raj.dev"
-        />
-        <ProjectCard
-          title="Netflix Clone"
-          desc="Impersonating Netflix with css skills"
-          techs={["React", "Framer"]}
-          link="https://github.com/imrraaj/silver-journey-particle-system"
-        />
-        <ProjectCard
-          title="Silver Journey"
-          desc="Physics emulated particle system built with HTML canvas"
-          techs={["Javascript"]}
-          link="https://github.com/imrraaj/silver-journey-particle-system"
-        />
-      </div>
-    </section>
+  <h1 class="font-black md:text-3xl text-2xl mb-2">
+    An abstract representation of ideas collectively termed as 'Raj'.
+    <p>Developer in disguise</p>
+  </h1>
+  <br />
+  <p>
+    I am {new Date().getFullYear() - 2003 + 1} y/o quote-unquote Software Developer.
+    I am interested in things like <b
+      >how to center my div, how to fix mom's printer and how to make my web
+      server go <em>ZOOM ZOOM FAST</em>.
+    </b>
+    I live on the Edge (pun intended).
+  </p>
 
-    <br />
-    <section>
-      <h2 class="text-3xl my-2 underline text-primary">Experience</h2>
-      <div class="my-2">
-        <h3 class="text-secondary">Booksapp</h3>
-        <p>
-          Building a React-Native cross platform 'booksapp' (a startup incubated
-          under Nirma University) application aims to provide solution for
-          anonymous exchange of books between readers
-        </p>
-      </div>
-    </section>
-    <br />
-    <section>
-      <h2 class="text-3xl my-2 underline text-primary">Education</h2>
-      <div class="my-2">
-        <h3 class="text-secondary">
-          Bechlor's of Technology in Computer Science Engineering
-        </h3>
-        <p>2020-2024</p>
-        <p>Institute of Technology, Nirma University</p>
-      </div>
+  <br />
+  <p>
+    I am currently in my last year at Nirma University pursuing my Bechlor's
+    degree in Computer Science Engineering. Apart from code and study, in my
+    free time I enjoy wasting my time, listening to music & podcasts,
+    ocasionally reading books and writing about them and lastly scrolling my <a
+      href="https://twitter.com/imrraaj"
+      class="border-b-2 border-zinc-800">Twitter</a
+    >.
+  </p>
+  <br />
+  <section>
+    <h2 class="md:text-3xl text-2xl my-4">Linus said: “Show me the code”</h2>
 
-      <div class="my-2">
-        <h3 class="text-secondary">High School</h3>
-        <p>2018-2020</p>
-        <p>M. K. Patel Highschool</p>
-      </div>
-    </section>
-  </main>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <ProjectCard
+        title="cloudNotes"
+        desc="Why remember anything when you can write once and access it everywhere?"
+        techs={["React", "NodeJS", "MongoDB"]}
+        link="https://notesontheweb.vercel.app"
+      />
+      <ProjectCard
+        title="Fexer"
+        desc="Lexer implementation using Finite State Machines."
+        techs={["C++"]}
+        link="https://github.com/imrraaj/fexer"
+      />
+      <ProjectCard
+        title="raj.dev"
+        desc="Boring personal site built using astro"
+        techs={["Astro", "Tailwind"]}
+        link="https://github.com/imrraaj/raj.dev"
+      />
+      <ProjectCard
+        title="Netflix Clone"
+        desc="Impersonating Netflix with css skills"
+        techs={["React", "Framer"]}
+        link="https://github.com/imrraaj/silver-journey-particle-system"
+      />
+      <ProjectCard
+        title="Silver Journey"
+        desc="Physics emulated particle system built with HTML canvas"
+        techs={["Javascript"]}
+        link="https://github.com/imrraaj/silver-journey-particle-system"
+      />
+    </div>
+  </section>
+
+  <br />
+  <section>
+    <h2 class="mt-8 md:text-3xl text-2xl">Experience</h2>
+    <div class="my-2">
+      <h3 class="">Booksapp</h3>
+      <p>
+        Building a React-Native cross platform 'booksapp' (a startup incubated
+        under Nirma University) application aims to provide solution for
+        anonymous exchange of books between readers
+      </p>
+    </div>
+  </section>
+  <br />
+  <section>
+    <h2 class="md:text-3xl text-2xl mt-8">Education</h2>
+    <div class="my-2">
+      <h3 class="">Bechlor's of Technology in Computer Science Engineering</h3>
+      <p>2020-2024</p>
+      <p>Institute of Technology, Nirma University</p>
+    </div>
+
+    <div class="my-2">
+      <h3 class="">High School</h3>
+      <p>2018-2020</p>
+      <p>M. K. Patel Highschool</p>
+    </div>
+  </section>
 </PageLayout>

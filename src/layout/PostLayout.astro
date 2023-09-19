@@ -6,20 +6,23 @@ const { frontmatter } = Astro.props;
 <PageLayout title={frontmatter.title} descripton={frontmatter.description}>
   <article>
     <header class="my-4">
-      <h1 class="text-3xl font-black leading-relaxed">
+      <h1 class="md:text-3xl text-2xl font-black leading-relaxed">
         {frontmatter.title}
       </h1>
-      <p class="text-sm text-secondary font-heading">
+      <p class="text-sm">
         Published On: {frontmatter.date}
       </p>
     </header>
     <div
-      class="post-body prose max-w-[85ch] prose-blockquote:text-white text-white prose-headings:text-accent prose-headings:font-black prose-strong:text-white prose-strong:font-bold text-justify space-y-8 prose-img:rounded-xl prose-img:mx-auto"
+      class="prose prose-headings:font-black prose-strong:font-bold text-justify prose-img:rounded-xl prose-img:mx-auto"
     >
       <slot />
     </div>
   </article>
-  <a href="/blog" class="text-primary hover:underline my-4 block">
-    ← Back to home
-  </a>
+  <a
+    href="/blog"
+    class="inline-block m-6 mx-auto bg-zinc-800 text-zinc-50 px-4 py-2 rounded"
+  >
+    ← Back to home</a
+  >
 </PageLayout>
