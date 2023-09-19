@@ -2,7 +2,7 @@
 layout: ../../layout/PostLayout.astro
 title: Lessons from Good Will Hunting.
 date: 17-09-2023
-published: false
+published: true
 ---
 
 ## Preface:
@@ -15,10 +15,10 @@ I have started to take directors more seriously. In childhood I watch movies bas
 
     It's okay to be attached
 
-a
+---
 
     It's okay if people goes different way
 
-a
+---
 
     Whom who are with right now matters more than whom you will in the future.
