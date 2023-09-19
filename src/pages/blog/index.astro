@@ -1,31 +1,48 @@
 ---
 import PageLayout from "../../layout/PageLayout.astro";
+
+const getUTCdate = (date) => {
+  const [day, month, year] = date.split("-").map(Number);
+  const inputDateUTC = new Date(Date.UTC(year, month - 1, day));
+  return inputDateUTC;
+};
+const getISTdateString = (date) => {
+  const inputDateUTC = getUTCdate(date);
+  const istDateString = inputDateUTC.toLocaleDateString("en-US", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  });
+  return istDateString;
+};
 const astro_posts = await Astro.glob("./*md");
 const unsorted_posts = astro_posts.filter((o) => o.frontmatter.published);
 const posts = unsorted_posts.sort((a, b) => {
-    const da = new Date(a.frontmatter.pubDate);
-    const db = new Date(b.frontmatter.pubDate);
-    return db.getTime() - da.getTime();
+  const da = getUTCdate(a.frontmatter.date);
+  const db = getUTCdate(b.frontmatter.date);
+  return db.getTime() - da.getTime();
 });
 ---
 
 <PageLayout title="Blogs">
-    <h1 class="text-4xl font-black text-primary my-6">What I have written</h1>
-    <div class="post-container">
-        {
-            posts.map((post) => (
-                <div class="my-6">
-                    <a href={post.url}>
-                        <p class="text-2xl font-extrabold font-heading text-primary hover:underline">
-                            {post.frontmatter.title}
-                        </p>
-                    </a>
-                    <span class="bg-secondary text-background px-3 rounded-sm font-bold text-sm">
-                        {post.frontmatter.pubDate}
-                    </span>
-                    <p class="my-2">{post.frontmatter.description}</p>
-                </div>
-            ))
-        }
-    </div>
+  <h1 class="text-4xl font-black text-primary my-6">What I have written</h1>
+  <div class="post-container">
+    {
+      posts.map((post) => {
+        return (
+          <div class="my-6">
+            <a href={post.url}>
+              <p class="text-2xl font-extrabold font-heading text-primary hover:underline">
+                {post.frontmatter.title}
+              </p>
+            </a>
+            <span class="rounded-sm font-bold text-sm">
+              {getISTdateString(post.frontmatter.date)}
+            </span>
+          </div>
+        );
+      })
+    }
+  </div>
 </PageLayout>
