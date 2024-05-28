@@ -1,0 +1,12 @@
+---
+layout: ../../layout/PostLayout.astro
+title: Lost in translation
+date: 28-05-2024
+published: true
+---
+
+Oh boy, Oh boy. Here we go again. The motivtion behind today's article is Prakhar Bhai. Long live Prakhar bhai aur unke streams. The idea of you only exists in your mind. You think of yourself as what you think world thinks of you. In reality, nobody is free to judge you. You are worried about your perception on other people, when people don't even want to actively think about you. The perception that I have for me is radical(I am not going to express everything to you 🤔). I talk and sound like I am a smart person, but deep down only I know how shallow the waters really are. My only hope is to change this perception of me in my own mind. I may know a concept, an idea or a quote but just stating it in any conversation is not the actual _Intellectualness_ that I feel for myself. Though many (only one really, nobody else understands the idea I am presenting or atleast they dont want to) people tell me that I sound like a smart guy(#comeback_king), intelligent and all that crap, none of that matters to me. **Truth is what I know and nobody else sees it.** I have an uncanny ability to remember smallest of the details if it interests me. I can tell you what exactly you did when we met in 7th standard IF I want to remember that, otherwise I may not even recollect what I ate in the dinner last night. (Read the other post about Sherlock). Long story shor, I know my limitaions are, when others don't even know them. If I go to my friend and say that I am not who you think I am and I think of myself as this this this, they'll probably laugh me off or say I am suffering from imposter syndrome, but the truth is alive deep down where nobody sees it, and it must prevail.
+
+---
+
+I think I am ready to put up content on this blog. I have thought of a format which will be good enough to start with and it will keep me motivated and keep me going. Everyday for next whole week, I will put out some form of content on this blog be it images, blogs or any other form. Main motive behind it, is consistency. If I force myself to write lengthy essays, I will not be even writing by the 3rd day. So I have decided to put out some small content like a small paragraph (with a super cool title) on something I can ponder when I came back to it after "n" years. I want to see how my writing is improving when I write consistently. **We're so back**
