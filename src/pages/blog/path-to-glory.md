@@ -1,0 +1,8 @@
+---
+layout: ../../layout/PostLayout.astro
+title: Path to glory
+date: 29-05-2024
+published: true
+---
+
+It was never about the destination and was always about the journey. Only when you reach the destination and take a look you realise it was not worth it. It was and will be about journey. There is a moment of happiness, sadness and ephemeral joy in the destination. For me personally I never in my life have enjoyed the destination, ever. Taking a look back in life only suggests the people I've crossed paths with, people who became friends along the way, people who left behind because they were on own their own journey. So much happening around you that you almost never think about it. Recently I have completed my last semester exams and everyone was celebrating and had a lifetime of grief of giving the college life up. I thought if you are worried that you'll never meet the same people again that you shouldn't be even worried about them. My simple philosophy says that if the person is really someone who you care, whom you wished that stays around will always be around. Like that gang you made in the 3rd semester now becomes the integral part of your life. You arw only worried about the people whom you had little to no contact, people whom you just spent the time with without having a deep sense of relationship. They will not matter. People who matters to you will always find a way to come back in your life at one point in your life. Be it a reunion or that trip you promised you'll do when you were in the college. So long story short life will move on so move on with it and find your nemo.
