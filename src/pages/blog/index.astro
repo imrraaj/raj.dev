@@ -26,14 +26,14 @@ const posts = unsorted_posts.sort((a, b) => {
 ---
 
 <PageLayout title="Blogs">
-  <h1 class="md:text-3xl text-2xl font-black my-6">What I have written</h1>
+  <!-- <h1 class="md:text-3xl text-2xl font-black my-6">What I have written</h1> -->
   <div class="post-container">
     {
       posts.map((post) => {
         return (
           <div class="my-6">
             <a href={post.url}>
-              <p class="md:text-xl text-lg font-extrabold   hover:underline">
+              <p class="md:text-2xl text-lg font-extrabold hover:underline">
                 {post.frontmatter.title}
               </p>
             </a>
