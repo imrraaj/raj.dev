@@ -25,18 +25,15 @@ const posts = unsorted_posts.sort((a, b) => {
 });
 ---
 
-<PageLayout title="Blogs">
-  <!-- <h1 class="md:text-3xl text-2xl font-black my-6">What I have written</h1> -->
+<PageLayout title="Blog">
   <div class="post-container">
     {
       posts.map((post) => {
         return (
           <div class="my-6">
-            <a href={post.url}>
-              <p class="md:text-2xl text-lg font-extrabold hover:underline">
-                {post.frontmatter.title}
-              </p>
-            </a>
+            <h2 class="md:text-2xl text-lg font-extrabold hover:underline dark:text-zinc-300">
+              <a href={post.url}>{post.frontmatter.title}</a>
+            </h2>
             <span class="text-sm">
               {getISTdateString(post.frontmatter.date)}
             </span>

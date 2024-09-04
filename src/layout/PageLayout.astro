@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 const { title } = Astro.props;
 import { SITE_DESCRIPTION } from "../config";
-const image = "/banner.png";
+const image = "/landscape.jpg";
 ---
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ const image = "/banner.png";
     <meta property="twitter:description" content={SITE_DESCRIPTION} />
     <meta property="twitter:image" content={image} />
   </head>
-  <body class="px-4 max-w-[70ch] mx-auto bg-zinc-50">
+  <body class="px-4 max-w-[70ch] mx-auto bg-zinc-50 dark:bg-slate-900 dark:text-zinc-300">
     <Header />
     <main class="min-h-[500px]">
       <slot />

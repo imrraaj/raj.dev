@@ -1,0 +1,42 @@
+---
+import PageLayout from "../../layout/PageLayout.astro"
+
+const getUTCdate = (date) => {
+  const [day, month, year] = date.split("-").map(Number);
+  const inputDateUTC = new Date(Date.UTC(year, month - 1, day));
+  return inputDateUTC;
+};
+const getISTdateString = (date) => {
+  const inputDateUTC = getUTCdate(date);
+  const istDateString = inputDateUTC.toLocaleDateString("en-US", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  });
+  return istDateString;
+};
+const astro_posts = await Astro.glob("./*md");
+const unsorted_posts = astro_posts.filter((o) => o.frontmatter.published);
+const posts = unsorted_posts.sort((a, b) => {
+  const da = getUTCdate(a.frontmatter.date);
+  const db = getUTCdate(b.frontmatter.date);
+  return db.getTime() - da.getTime();
+});
+---
+
+<PageLayout title="Misc.">
+  <ul class="post-container list-disc">
+    {
+      posts.map((post) => {
+        return (
+          <li>
+            <h2 class="font-medium">
+              <a class="hover:underline dark:text-zinc-300" href={post.url}>{post.frontmatter.title}</a>
+            </h2>
+          </li>
+        );
+      })
+    }
+  </ul>
+</PageLayout>

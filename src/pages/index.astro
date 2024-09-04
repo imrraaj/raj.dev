@@ -1,10 +1,9 @@
 ---
-import ProjectCard from "../components/ProjectCard.astro";
 import PageLayout from "../layout/PageLayout.astro";
 ---
 
-<PageLayout title="Personal Blog of Raj Patel | Home">
-  <h1 class="font-black md:text-3xl text-2xl mb-2">
+<PageLayout title="memory palace">
+  <h1 class="font-black md:text-3xl text-2xl mb-2 dark:text-zinc-300">
     An abstract representation of ideas collectively termed as 'Raj'.
     <p>Developer in disguise</p>
   </h1>
@@ -29,68 +28,7 @@ import PageLayout from "../layout/PageLayout.astro";
     >.
   </p>
   <br />
-  <section>
-    <h2 class="md:text-3xl text-2xl my-4">Linus said: “Show me the code”</h2>
-
-    <div class="grid sm:grid-cols-2 gap-4">
-      <ProjectCard
-        title="cloudNotes"
-        desc="Why remember anything when you can write once and access it everywhere?"
-        techs={["React", "NodeJS", "MongoDB"]}
-        link="https://notesontheweb.vercel.app"
-      />
-      <ProjectCard
-        title="Fexer"
-        desc="Lexer implementation using Finite State Machines."
-        techs={["C++"]}
-        link="https://github.com/imrraaj/fexer"
-      />
-      <ProjectCard
-        title="raj.dev"
-        desc="Boring personal site built using astro"
-        techs={["Astro", "Tailwind"]}
-        link="https://github.com/imrraaj/raj.dev"
-      />
-      <ProjectCard
-        title="Netflix Clone"
-        desc="Impersonating Netflix with css skills"
-        techs={["React", "Framer"]}
-        link="https://github.com/imrraaj/silver-journey-particle-system"
-      />
-      <ProjectCard
-        title="Silver Journey"
-        desc="Physics emulated particle system built with HTML canvas"
-        techs={["Javascript"]}
-        link="https://github.com/imrraaj/silver-journey-particle-system"
-      />
-    </div>
-  </section>
-
+  <img src="/potrait.jpg" alt="Innovations" title="Innovation">
   <br />
-  <section>
-    <h2 class="mt-8 md:text-3xl text-2xl">Experience</h2>
-    <div class="my-2">
-      <h3 class="">Booksapp</h3>
-      <p>
-        Building a React-Native cross platform 'booksapp' (a startup incubated
-        under Nirma University) application aims to provide solution for
-        anonymous exchange of books between readers
-      </p>
-    </div>
-  </section>
-  <br />
-  <section>
-    <h2 class="md:text-3xl text-2xl mt-8">Education</h2>
-    <div class="my-2">
-      <h3 class="">Bechlor's of Technology in Computer Science Engineering</h3>
-      <p>2020-2024</p>
-      <p>Institute of Technology, Nirma University</p>
-    </div>
 
-    <div class="my-2">
-      <h3 class="">High School</h3>
-      <p>2018-2020</p>
-      <p>M. K. Patel Highschool</p>
-    </div>
-  </section>
 </PageLayout>

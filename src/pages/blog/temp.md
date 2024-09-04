@@ -1,6 +1,11 @@
 ---
-Old thing when I first published a real paper. Keeping it here because I don't want to lose it.
+layout: ../../layout/PostLayout.astro
+title: Short coming of ideas.
+date: 06-07-2023
+description: Great ideas are hard to come by and extremely hard to generate by your own. Not to mention the sheer amout of knowledge required. In this I have discussed the concept of ideas and why I am struggling with it.
+published: false
 ---
+
 
 - Introduction, paragraph 1 - please add example of gathered data - **examples added**
 

@@ -24,23 +24,17 @@ const pubslisedOn = getISTdateString(frontmatter.date);
 <PageLayout title={frontmatter.title} descripton={frontmatter.description}>
   <article>
     <header class="my-4">
-      <h1 class="md:text-4xl text-2xl font-black leading-relaxed">
+      <h1 class="md:text-4xl text-2xl font-black leading-relaxed dark:text-zinc-300">
         {frontmatter.title}
       </h1>
-      <p class="text-md mt-2">
+      <p class="text-sm mt-2 text-zinc-500 dark:text-zinc-300">
         Published On: {pubslisedOn}
       </p>
     </header>
     <div
-      class="prose prose-headings:font-black prose-strong:font-bold text-justify prose-img:rounded-xl prose-img:mx-auto my-8"
+      class="prose prose-headings:font-black prose-strong:font-bold text-justify prose-img:rounded-xl prose-img:mx-auto my-8 dark:text-zinc-300"
     >
       <slot />
     </div>
   </article>
-  <a
-    href="/blog"
-    class="inline-block m-6 mx-auto text-zinc-900 rounded hover:underline"
-  >
-    ← Back to home</a
-  >
 </PageLayout>

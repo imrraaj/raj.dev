@@ -1,10 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import "@fontsource/geist-sans/100.css";
+@import "@fontsource/geist-sans/200.css";
+@import "@fontsource/geist-sans/300.css";
+@import "@fontsource/geist-sans/400.css";
+@import "@fontsource/geist-sans/500.css";
+@import "@fontsource/geist-sans/600.css";
+@import "@fontsource/geist-sans/700.css";
+@import "@fontsource/geist-sans/800.css";
+@import "@fontsource/geist-sans/900.css";
+
 html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-size: 18px;
-  font-family: "Inter", serif;
+  font-family: "Geist Sans", sans-serif;
 }
 
 h1,
@@ -14,6 +24,7 @@ h4,
 h5,
 h6 {
   @apply font-black text-zinc-800;
+  font-family:  "Inter", sans-serif;
 }
 h3 {
   @apply text-lg;
