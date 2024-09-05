@@ -1,7 +1,7 @@
 ---
 layout: ../../layout/PostLayout.astro
 title: Poems
-date: 30-07-2024
+date: 05-09-2024
 description: Let's just discuss ideas.
 published: true
 ---
