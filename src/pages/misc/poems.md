@@ -2,12 +2,17 @@
 layout: ../../layout/PostLayout.astro
 title: Poems
 date: 05-09-2024
-description: Let's just discuss ideas.
 published: true
 ---
 
+## Index
+
+1. [Do not go gentle into that good night](#do-not-go-gentle-into-that-good-night)
+2. [Madhusala](#madhusala)
+
 
 ## Do not go gentle into that good night
+
 By [Dylan Thoms](https://poets.org/poet/dylan-thomas)
 
 > Do not go gentle into that good night, <br/>
@@ -34,3 +39,4 @@ By [Dylan Thoms](https://poets.org/poet/dylan-thomas)
 > Curse, bless, me now with your fierce tears, I pray.<br/>
 > Do not go gentle into that good night.<br/>
 > Rage, rage against the dying of the light.
+

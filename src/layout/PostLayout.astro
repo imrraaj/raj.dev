@@ -24,7 +24,9 @@ const pubslisedOn = getISTdateString(frontmatter.date);
 <PageLayout title={frontmatter.title} descripton={frontmatter.description}>
   <article>
     <header class="my-4">
-      <h1 class="md:text-4xl text-2xl font-black leading-relaxed dark:text-zinc-300">
+      <h1
+        class="md:text-4xl text-2xl font-black leading-relaxed dark:text-zinc-300"
+      >
         {frontmatter.title}
       </h1>
       <p class="text-sm mt-2 text-zinc-500 dark:text-zinc-300">
@@ -32,7 +34,20 @@ const pubslisedOn = getISTdateString(frontmatter.date);
       </p>
     </header>
     <div
-      class="prose prose-headings:font-black text-md prose-strong:text-emerald-700 prose-strong:dark:text-emerald-400 prose-strong:font-bold text-justify prose-img:rounded-xl prose-img:mx-auto my-8 dark:text-zinc-300"
+      class="prose 
+      prose-headings:font-black
+      prose-strong:text-emerald-700
+      prose-strong:dark:text-emerald-400
+      prose-strong:font-bold 
+      prose-img:rounded-xl
+      prose-img:mx-auto 
+      text-md
+      text-justify 
+      my-8
+      prose-headings:dark:text-zinc-300
+      prose-a:dark:text-emerald-400
+      prose-a:text-emerald-400
+      prose-p:dark:text-zinc-300"
     >
       <slot />
     </div>
