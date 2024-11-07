@@ -1,0 +1,10 @@
+services:
+  raj-dev:
+    image: raj.dev:latest
+    container_name: rajdev
+    networks:
+      - server_network
+  
+networks:
+  server_network:
+    external: true
