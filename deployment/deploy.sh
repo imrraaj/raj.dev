@@ -1,7 +1,5 @@
 #!/bin/sh
 
-alias docker=/usr/local/bin/docker
-whoami
 git pull
 echo "$(date +"%d %b %Y %H:%M:%S"): Releasing new server version"
 echo "Running build..."
@@ -18,3 +16,4 @@ else
     echo "No old container found. Skipping removal."
 fi
 docker compose up -d
+docker exec -it $(docker ps -aqf "name=caddy") caddy reload --config /etc/caddy/Caddyfile

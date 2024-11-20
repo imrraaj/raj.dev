@@ -1,10 +1,10 @@
 name: raj.dev
 services:
-    main_site:
+    main-site:
         build: ../
         networks:
-            - server_net
+            - server_network
 
 networks:
-    server_net:
+    server_network:
         external: true
