@@ -31,10 +31,10 @@ const posts = unsorted_posts.sort((a, b) => {
       posts.map((post) => {
         return (
           <div class="my-6">
-            <h2 class="md:text-2xl text-lg font-extrabold hover:underline dark:text-zinc-300">
-              <a href={post.url}>{post.frontmatter.title}</a>
+            <h2 class="md:text-2xl text-lg font-extrabold text-zinc-300 font-primary">
+              <a href={post.url} class="hover:underline hover:text-accent transition-colors duration-200">{post.frontmatter.title}</a>
             </h2>
-            <span class="text-sm">
+            <span class="text-sm text-zinc-500">
               {getISTdateString(post.frontmatter.date)}
             </span>
           </div>

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 @import "@fontsource/geist-sans/100.css";
 @import "@fontsource/geist-sans/200.css";
 @import "@fontsource/geist-sans/300.css";
@@ -14,18 +15,27 @@ html {
   margin: 0;
   box-sizing: border-box;
   font-size: 18px;
-  font-family: "Geist Sans", sans-serif;
+  font-family: "Geist Sans", system-ui, -apple-system, sans-serif;
 }
 
 h1,
-h2,
+h2 {
+  @apply font-black;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
 h3,
-h4,
+h4 {
+  @apply font-bold;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
 h5,
 h6 {
-  @apply font-black text-zinc-800;
-  font-family:  "Inter", sans-serif;
+  @apply font-semibold;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
+
 h3 {
   @apply text-lg;
 }
@@ -34,23 +44,40 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 code {
   padding: 2px 5px;
-  background-color: #f2f2f2;
+  border: 1px solid theme('colors.zinc.800');
+  border-radius: 4px;
+  font-family: "JetBrains Mono", Consolas, Monaco, "Courier New", monospace;
+  background-color: theme('colors.zinc.800');
+  color: theme('colors.white');
 }
+
 pre {
   padding: 1.5rem;
-  border-radius: 5px;
+  border-radius: 8px;
+  border: 1px solid theme('colors.zinc.800');
+  background-color: theme('colors.zinc.800');
+  overflow-x: auto;
 }
+
 pre::-webkit-scrollbar {
   display: none;
 }
-pre > code {
-  font-family: monospace;
+
+pre>code {
+  font-family: "JetBrains Mono", Consolas, Monaco, "Courier New", monospace;
   all: unset;
 }
+
 blockquote {
-  @apply italic m-0 border-l-8 p-4 border-gray-500 font-bold;
+  @apply italic m-0 border-l-8 p-4 font-bold border-zinc-700 bg-zinc-800 text-white;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .post-body a {

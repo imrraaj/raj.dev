@@ -3,17 +3,15 @@
 
 export const SITE_TITLE = "Raj Patel"
 export const SITE_DESCRIPTION = "Writes about Programming, Philosophy and Movies";
-
-
 export const NAVIGATION = [
     {
         "text": "Home",
         "link": "/"
     },
-    // {
-    //     "text": "Books",
-    //     "link": "/books"
-    // },
+    {
+        "text": "Projects",
+        "link": "/projects"
+    },
     {
         "text": "Blog",
         "link": "/blog"
