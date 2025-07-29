@@ -4,26 +4,29 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-const { title } = Astro.props;
-import { SITE_DESCRIPTION } from "../config";
+import { SITE_DESCRIPTION, SITE_TITLE} from "../config";
 const image = "/landscape.jpg";
+
+let { title } = Astro.props;
+if (!title) {
+  title = SITE_TITLE
+} else {
+  title += " | " + SITE_TITLE
+}
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Global Metadata -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={SITE_DESCRIPTION} />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
@@ -37,7 +40,7 @@ const image = "/landscape.jpg";
     <meta property="twitter:description" content={SITE_DESCRIPTION} />
     <meta property="twitter:image" content={image} />
   </head>
-  <body class="px-4 max-w-[70ch] mx-auto bg-zinc-50 dark:bg-neutral-900 dark:text-zinc-300">
+  <body class="px-4 max-w-[75ch] mx-auto bg-zinc-50 dark:bg-neutral-900 dark:text-zinc-300">
     <Header />
     <main class="min-h-[500px]">
       <slot />

@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { Mail, Github, TwitterIcon } from "lucide-react";
+import {NAVIGATION, SOCIALS} from "../config.ts";
+
 ---
 
 <header class="my-8">
@@ -16,22 +17,18 @@ import { Mail, Github, TwitterIcon } from "lucide-react";
   </a>
   <nav class="my-4 flex items-center justify-between">
     <div class="flex gap-4">
-      <HeaderLink href="/">home</HeaderLink>
-      <HeaderLink href="/books">books</HeaderLink>
-      <HeaderLink href="/blog">blogs</HeaderLink>
-      <HeaderLink href="/misc">misc</HeaderLink>
+      {
+          NAVIGATION.map(el => <HeaderLink href={el.link}>{el.text}</HeaderLink>)
+      }
     </div>
     <div class="flex gap-4">
-      <HeaderLink href="mailto:rajpatel10953@gmail.com" target="_blank" title={"rajpatel10953@gmail.com"}>
-        <Mail />
+      {
+      SOCIALS.map(el => {
+return <HeaderLink href={el.link} target="_blank" title={el.link}>
+        {<el.element />}
       </HeaderLink>
-
-      <HeaderLink href="https://github.com/imrraaj" target="_blank" title={"@imrraaj"}>
-        <Github />
-      </HeaderLink>
-      <HeaderLink href="https://x.com/imrraaj" target="_blank" title={"@imrraaj"}>
-        <TwitterIcon />
-      </HeaderLink>
+        })
+    }
     </div>
   </nav>
 </header>
