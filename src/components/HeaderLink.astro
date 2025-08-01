@@ -7,7 +7,7 @@ const isActive = href === Astro.url.pathname.replace(/\/$/, "");
 
 <a
   href={href}
-  class={`inline-flex justify-between items-center text-zinc-100 font-primary font-semibold hover:text-accent transition-colors duration-200 ${
+  class={`inline-flex justify-between items-center text-zinc-200 font-primary font-semibold hover:text-accent transition-colors duration-200 ${
     isActive && "underline text-accent"
   }`}
   {...props}

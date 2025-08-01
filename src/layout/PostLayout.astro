@@ -25,29 +25,30 @@ const pubslisedOn = getISTdateString(frontmatter.date);
   <article>
     <header class="my-4">
       <h1
-        class="md:text-4xl text-2xl font-black leading-relaxed dark:text-zinc-300"
+        class="md:text-4xl text-2xl font-black leading-relaxed text-zinc-200"
       >
         {frontmatter.title}
       </h1>
-      <p class="text-sm mt-2 text-zinc-500 dark:text-zinc-300">
+      <p class="text-sm mt-2 text-zinc-500">
         Published On: {pubslisedOn}
       </p>
     </header>
     <div
-      class="prose 
+      class="prose
       prose-headings:font-black
-      prose-strong:text-emerald-700
-      prose-strong:dark:text-emerald-400
-      prose-strong:font-bold 
+      prose-headings:text-zinc-200
+      prose-strong:text-emerald-400
+      prose-strong:font-bold
       prose-img:rounded-xl
-      prose-img:mx-auto 
+      prose-img:mx-auto
       text-md
-      text-justify 
+      text-justify
       my-8
-      prose-headings:dark:text-zinc-300
-      prose-a:dark:text-emerald-400
-      prose-a:text-emerald-400
-      prose-p:dark:text-zinc-300"
+      prose-a:bg-zinc-800/80
+      prose-a:px-1
+      prose-a:text-zinc-300
+      prose-p:text-zinc-400
+    "
     >
       <slot />
     </div>
