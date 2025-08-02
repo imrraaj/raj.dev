@@ -1,7 +1,6 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import {NAVIGATION, SOCIALS} from "../config.ts";
-
+import { NAVIGATION, SOCIALS } from "../config";
 ---
 
 <header class="my-8">
@@ -12,23 +11,27 @@ import {NAVIGATION, SOCIALS} from "../config.ts";
         src="/header.jpg"
         alt="An image from Raj's twitter profile"
       />
-      <h2 class="font-black text-2xl text-zinc-200 font-primary">Raj Patel</h2>
+      <h2 class="font-black text-2xl font-primary">Raj Patel</h2>
     </div>
   </a>
   <nav class="my-4 flex items-center justify-between">
     <div class="flex gap-4">
       {
-          NAVIGATION.map(el => <HeaderLink href={el.link}>{el.text}</HeaderLink>)
+        NAVIGATION.map((el) => (
+          <HeaderLink href={el.link}>{el.text}</HeaderLink>
+        ))
       }
     </div>
     <div class="flex gap-4">
       {
-      SOCIALS.map(el => {
-return <HeaderLink href={el.link} target="_blank" title={el.link}>
-        {<el.element />}
-      </HeaderLink>
+        SOCIALS.map((el) => {
+          return (
+            <HeaderLink href={el.link} target="_blank" title={el.link}>
+              {<el.element />}
+            </HeaderLink>
+          );
         })
-    }
+      }
     </div>
   </nav>
 </header>

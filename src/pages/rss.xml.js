@@ -1,4 +1,5 @@
 import rss from '@astrojs/rss';
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 const postImportResults = import.meta.glob("./blog/*.md", { eager: true })
 const posts = Object.values(postImportResults).filter(post => post.frontmatter.published)
@@ -6,8 +7,8 @@ export function get() {
 
 	return rss({
 		stylesheet: "rss/styles.xsl",
-		title: 'Enjoygraphy',
-		description: 'A blossom in the dessert',
+		title: SITE_TITLE,
+		description: SITE_DESCRIPTION,
 		site: import.meta.env.SITE,
 		items: posts.map(post => ({
 			link: post.url,

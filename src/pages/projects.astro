@@ -1,124 +1,99 @@
 ---
 import PageLayout from "../layout/PageLayout.astro";
 import { ExternalLinkIcon, GithubIcon } from "lucide-react";
+
+const projects = [
+  {
+    title: "Byte Stream",
+    description: "A no-bullshit video player written in c",
+    features: [
+      "Built from scratch in c for recreational purposes",
+      "Handles video processing and audio playback using ffmpeg",
+      "Uses raylib for rendering and user interface",
+      "Supports basic video formats like mp4 and avi",
+      "Supports custom shaders applied to video frames",
+      "Custom shaders for dimming, brightness, and contrast adjustments, color grading, and more",
+    ],
+    technologies: "C, ffmpeg, Raylib",
+    github: "https://github.com/imrraaj/byte-stream",
+  },
+  {
+    title: "gocached",
+    description: "An attempt to build a redis clone in go",
+    features: [
+      "Implements core redis functionality",
+      "Concurrent client handling with goroutines",
+      "Network programming",
+      "Supports basic commands like GET, SET, DEL, and more",
+      "Write Ahead Log (WAL) for data persistence using a custom binary format",
+      "Supports basic data structures like strings, lists, sets, and hashes",
+    ],
+    technologies: "Golang, TCP Networking, Concurrent Maps",
+    github: "https://github.com/imrraaj/gocached",
+  },
+  {
+    title: "dexify",
+    description: "modern web application built with typescript",
+    features: [
+      "Frontend for Uniswap V2 DEX for token buy/sell",
+      "Added support for buy/sell at specific price using limit orders",
+      "Realtime token price using Uniswap Liquidity pools",
+      "Supports multiple blockchains like Arbitrum, Base, and BSC",
+    ],
+    technologies: "Typescript, React, Solidity, Tailwind CSS",
+    github: "https://github.com/imrraaj/dexify",
+  },
+  {
+    title: "gloom",
+    description: "bloom filter implementation in c++",
+    features: [
+      "Efficient probabilistic data structure implementation",
+      "Hash function optimization and collision handling",
+      "Memory-efficient design for large datasets",
+    ],
+    technologies: "C++, Data Structures, Algorithms",
+    github: "https://github.com/imrraaj/gloom",
+  },
+];
 ---
 
-<PageLayout title="Projects">  
+<PageLayout title="Projects">
   <div class="space-y-8">
-    <!-- byte-stream -->
-    <div class="border border-zinc-700 hover:border-emerald-700 rounded-lg p-6">
-      <div class="flex items-center justify-between">
-        <h2 class="text-xl font-bold text-accent font-primary">Byte Stream</h2>
-        <div class="flex gap-3">
-          <a href="https://github.com/imrraaj/byte-stream" class="text-zinc-500 hover:text-accent transition-colors duration-200">
-            <GithubIcon size={20} />
-          </a>
-          <a href="https://github.com/imrraaj/byte-stream" class="text-zinc-500 hover:text-accent transition-colors duration-200">
-            <ExternalLinkIcon size={20} />
-          </a>
+    {
+      projects.map((project) => (
+        <div class="border border-zinc-700 hover:border-emerald-700 rounded-lg p-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-black font-primary">{project.title}</h2>
+            <div class="flex gap-3">
+              <a
+                href={project.github}
+                class="text-zinc-500 hover:text-accent transition-colors duration-200"
+              >
+                <GithubIcon size={20} />
+              </a>
+              <a
+                href={project.github}
+                class="text-zinc-500 hover:text-accent transition-colors duration-200"
+              >
+                <ExternalLinkIcon size={20} />
+              </a>
+            </div>
+          </div>
+          <p class="text-zinc-300 text-sm mb-4">{project.description}</p>
+          <div class="mb-4">
+            <h4 class="text-zinc-300">Features</h4>
+            <ul class="list-disc px-4 text-sm text-white space-y-1">
+              {project.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-zinc-300">Stack</h4>
+            <p class="text-white text-sm">{project.technologies}</p>
+          </div>
         </div>
-      </div>
-      <p class="text-zinc-300 text-sm mb-4">A no-bullshit video player written in c</p>
-      <div class="mb-4">
-        <h4 class="text-zinc-300 underline">Features</h4>
-        <ul class="list-disc px-4 text-sm text-white space-y-1">
-          <li>built from scratch in c for performance and learning</li>
-          <li>handles multimedia processing and playback</li>
-          <li>demonstrates low-level systems programming skills</li>
-          <li>direct memory management and os interaction</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-zinc-300 underline">Technologies</h4>
-        <p class="text-white text-sm">c, ffmpeg, sdl2</p>
-      </div>
-    </div>
-
-    <!-- gocached -->
-    <div class="border border-zinc-700 hover:border-emerald-700 rounded-lg p-6">
-      <div class="flex items-center justify-between">
-        <h2 class="text-xl font-bold text-accent font-primary">gocached</h2>
-        <div class="flex gap-3">
-          <a href="https://github.com/imrraaj/gocached" class="text-zinc-500 hover:text-accent transition-colors duration-200">
-            <GithubIcon size={20} />
-          </a>
-          <a href="https://github.com/imrraaj/gocached" class="text-zinc-500 hover:text-accent transition-colors duration-200">
-            <ExternalLinkIcon size={20} />
-          </a>
-        </div>
-      </div>
-      <p class="text-zinc-300 text-sm mb-4">an attempt to build a redis clone in go</p>
-      <div class="mb-4">
-        <h4 class="text-zinc-300 underline">Features</h4>
-        <ul class="list-disc px-4 text-sm text-white space-y-1">
-          <li>implements core redis functionality and protocols</li>
-          <li>concurrent client handling with goroutines</li>
-          <li>custom data structures and memory management</li>
-          <li>network programming and distributed systems concepts</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-zinc-300 underline">Technologies</h4>
-        <p class="text-white text-sm">go, tcp networking, redis protocol</p>
-      </div>
-    </div>
-
-    <!-- dexify -->
-    <div class="border border-zinc-700 hover:border-emerald-700 rounded-lg p-6">
-      <div class="flex items-center justify-between">
-        <h2 class="text-xl font-bold text-accent font-primary">dexify</h2>
-        <div class="flex gap-3">
-          <a href="https://github.com/imrraaj/dexify" class="text-zinc-500 hover:text-accent transition-colors duration-200">
-            <GithubIcon size={20} />
-          </a>
-          <a href="https://github.com/imrraaj/dexify" class="text-zinc-500 hover:text-accent transition-colors duration-200">
-            <ExternalLinkIcon size={20} />
-          </a>
-        </div>
-      </div>
-      <p class="text-zinc-300 text-sm mb-4">modern web application built with typescript</p>
-      <div class="mb-4">
-        <h4 class="text-zinc-300 underline">Features</h4>
-        <ul class="list-disc px-4 text-sm text-white space-y-1">
-          <li>full-stack web application development</li>
-          <li>modern typescript and frontend frameworks</li>
-          <li>api integration and state management</li>
-          <li>responsive design and user experience focus</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-zinc-300 underline">Technologies</h4>
-        <p class="text-white text-sm">typescript, react, node.js</p>
-      </div>
-    </div>
-
-    <!-- gloom -->
-    <div class="border border-zinc-700 hover:border-emerald-700 rounded-lg p-6">
-      <div class="flex items-center justify-between">
-        <h2 class="text-xl font-bold text-accent font-primary">gloom</h2>
-        <div class="flex gap-3">
-          <a href="https://github.com/imrraaj/gloom" class="text-zinc-500 hover:text-accent transition-colors duration-200">
-            <GithubIcon size={20} />
-          </a>
-          <a href="https://github.com/imrraaj/gloom" class="text-zinc-500 hover:text-accent transition-colors duration-200">
-            <ExternalLinkIcon size={20} />
-          </a>
-        </div>
-      </div>
-      <p class="text-zinc-300 text-sm mb-4">bloom filter implementation in c++</p>
-      <div class="mb-4">
-        <h4 class="text-zinc-300 underline">Features</h4>
-        <ul class="list-disc px-4 text-sm text-white space-y-1">
-          <li>efficient probabilistic data structure implementation</li>
-          <li>hash function optimization and collision handling</li>
-          <li>memory-efficient design for large datasets</li>
-          <li>algorithm complexity analysis and optimization</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-zinc-300 underline">Technologies</h4>
-        <p class="text-white text-sm">c++, data structures, algorithms</p>
-      </div>
-    </div>
+      ))
+    }
   </div>
 </PageLayout>
