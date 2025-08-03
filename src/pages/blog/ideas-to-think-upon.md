@@ -4,6 +4,7 @@ title: Ideas to think upon.
 date: 12-07-2023
 description: Let's just discuss ideas.
 published: true
+tags: ideation
 ---
 
 If you are following my posts then you might know I talked about the podcast episode I was listening to and I enjoyed it but I forgot all of that? Well I have finished and here I am writing the ideas that inspired me to take a look at them in the future again. This might going to be bunch of _one-liners_ but I know you'll take that.
@@ -26,9 +27,10 @@ Stoicism says that you should not react to anything immediately and try to remai
 
 This is an interesting take. It takes either time or human effort to filter out the best books. There are more than plenty of books being printed every year. Let's be honest, more than half of them will be utter garbage. The remaining will need some kind of criteria to filter the best of the best. The thing wil old books is that time has done the work. Time has filtered out the best. Read it and you will have the knowledge. I think You should treat Napoleon, Plato and Socrates as your peers. Friends from the past. I don't care what Plato of Jupiter says, all I am concerned about is what the great thinkers of earth think. Absorb the greatness of others even when you don't have any to give
 
-> Most of my friends are dead [indicating the great authors of the past]
+> "Most of my friends are dead [indicating the great authors of the past]"
 >
-> Lex fridman with Jordan Peterson on his podcast
+> -- Lex fridman with Jordan Peterson on his podcast
+
 
 ### Do not play fair always
 

@@ -18,36 +18,40 @@ const getISTdateString = (date) => {
   return istDateString;
 };
 
-const pubslisedOn = getISTdateString(frontmatter.date);
+const publishedOn = getISTdateString(frontmatter.date);
 ---
 
 <PageLayout title={frontmatter.title} descripton={frontmatter.description}>
   <article>
     <header class="my-4">
-      <h1
-        class="md:text-4xl text-2xl font-black leading-relaxed text-zinc-200"
-      >
+      <h1 class="md:text-4xl text-2xl font-black leading-relaxed text-zinc-200">
         {frontmatter.title}
       </h1>
-      <p class="text-sm mt-2 text-zinc-500">
-        Published On: {pubslisedOn}
+      <p class="text-sm font-medium text-zinc-300">
+        Published On: {publishedOn}
       </p>
     </header>
     <div
       class="prose
+      text-md
+      text-left
+      my-4
+      min-w-full
       prose-headings:font-black
       prose-headings:text-zinc-200
       prose-strong:text-emerald-400
       prose-strong:font-bold
       prose-img:rounded-xl
       prose-img:mx-auto
-      text-md
-      text-justify
-      my-8
       prose-a:bg-zinc-800/80
       prose-a:px-1
       prose-a:text-zinc-300
-      prose-p:text-zinc-400
+      prose-p:text-zinc-100
+      prose-blockquote:font-serif
+      prose-li:text-zinc-200
+      prose-code:text-zinc-200
+      prose-code:before:content-['']
+      prose-code:after:content-['']
     "
     >
       <slot />

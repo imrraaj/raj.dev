@@ -13,11 +13,3 @@ export default defineConfig({
   site: "https://raj-dev.vercel.app",
   integrations: [mdx(), sitemap(), tailwind(), react()],
 });
-
-
-export function exampleRemarkPlugin() {
-  // All remark and rehype plugins return a separate function
-  return function (tree, file) {
-    file.data.astro.frontmatter.customProperty = 'Generated property';
-  }
-}

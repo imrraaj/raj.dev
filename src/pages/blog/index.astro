@@ -1,17 +1,17 @@
 ---
 import PageLayout from "../../layout/PageLayout.astro";
 
-const getUTCdate = (date) => {
+const getUTCdate = (date: string) => {
   const [day, month, year] = date.split("-").map(Number);
   const inputDateUTC = new Date(Date.UTC(year, month - 1, day));
   return inputDateUTC;
 };
-const getISTdateString = (date) => {
+const getISTdateString = (date: string) => {
   const inputDateUTC = getUTCdate(date);
   const istDateString = inputDateUTC.toLocaleDateString("en-US", {
     timeZone: "Asia/Kolkata",
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "2-digit",
   });
   return istDateString;
@@ -31,12 +31,27 @@ const posts = unsorted_posts.sort((a, b) => {
       posts.map((post) => {
         return (
           <div class="my-6">
-            <h2 class="md:text-2xl text-lg font-extrabold text-zinc-300 font-primary">
-              <a href={post.url} class="hover:underline hover:text-accent transition-colors duration-200">{post.frontmatter.title}</a>
-            </h2>
-            <span class="text-sm text-zinc-500">
-              {getISTdateString(post.frontmatter.date)}
-            </span>
+            <div class="flex justify-between items-center">
+              <h2 class="md:text-2xl text-lg font-extrabold text-zinc-300 font-primary">
+                <a
+                  href={post.url}
+                  class="hover:text-accent transition-colors duration-200"
+                >
+                  {post.frontmatter.title}
+                </a>
+              </h2>
+              <span class="text-sm text-zinc-500">
+                {getISTdateString(post.frontmatter.date)}
+              </span>
+            </div>
+            <p class="text-xs flex gap-2">
+              {post.frontmatter.tags &&
+                post.frontmatter.tags
+                  .split(",")
+                  .map((tag: string) => (
+                    <span class="bg-zinc-700 px-1 rounded-sm">{tag}</span>
+                  ))}
+            </p>
           </div>
         );
       })

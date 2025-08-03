@@ -9,7 +9,7 @@ module.exports = {
 			fontFamily: {
 				'primary': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
 				'secondary': ['Geist Sans', 'system-ui', '-apple-system', 'sans-serif'],
-				'mono': ['JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
+				'mono': ['Iosevka', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
 			},
 			fontSize: {
 				'xs': '0.75rem',

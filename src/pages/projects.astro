@@ -63,7 +63,11 @@ const projects = [
       projects.map((project) => (
         <div class="border border-zinc-700 hover:border-emerald-700 rounded-lg p-6">
           <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-black font-primary">{project.title}</h2>
+            <h2 class="text-2xl font-black font-primary">
+              <a
+                href={project.github}
+                class="hover:text-accent transition-colors duration-200"
+              >{project.title}</a></h2>
             <div class="flex gap-3">
               <a
                 href={project.github}
