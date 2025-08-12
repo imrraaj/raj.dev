@@ -20,3 +20,4 @@ pnpm-debug.log*
 
 test/
 deployment.log
+.obsidian
