@@ -7,8 +7,8 @@ module.exports = {
 				accent: '#10b981',  // Single accent color for hovers
 			},
 			fontFamily: {
-				'primary': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-				'secondary': ['Geist Sans', 'system-ui', '-apple-system', 'sans-serif'],
+				'primary': ['Schibsted Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
+				'secondary': ['Schibsted Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
 				'mono': ['Iosevka', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
 			},
 			fontSize: {

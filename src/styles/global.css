@@ -1,14 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
-@import "@fontsource/geist-sans/100.css";
-@import "@fontsource/geist-sans/200.css";
-@import "@fontsource/geist-sans/300.css";
-@import "@fontsource/geist-sans/400.css";
-@import "@fontsource/geist-sans/500.css";
-@import "@fontsource/geist-sans/600.css";
-@import "@fontsource/geist-sans/700.css";
-@import "@fontsource/geist-sans/800.css";
-@import "@fontsource/geist-sans/900.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 @font-face {
   font-family: "Iosevka";
   src: url("/fonts/iosevka-regular.ttf") format("truetype");
@@ -21,25 +11,22 @@ html {
   margin: 0;
   box-sizing: border-box;
   font-size: 18px;
-  font-family: "Geist Sans", system-ui, -apple-system, sans-serif;
+  font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
 }
 
 h1,
 h2 {
   @apply font-black;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 h3,
 h4 {
   @apply font-bold;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 h5,
 h6 {
   @apply font-semibold;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 h3 {

@@ -12,4 +12,9 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://raj-dev.vercel.app",
   integrations: [mdx(), sitemap(), tailwind(), react()],
+  markdown:{
+    shikiConfig:{
+      theme: "plastic"
+    }
+  }
 });
