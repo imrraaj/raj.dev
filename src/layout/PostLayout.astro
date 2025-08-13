@@ -21,15 +21,64 @@ const getISTdateString = (date) => {
 const publishedOn = getISTdateString(frontmatter.date);
 ---
 
-<PageLayout title={frontmatter.title} descripton={frontmatter.description}>
-  <article>
+<PageLayout 
+  title={frontmatter.title} 
+  description={frontmatter.description}
+  canonical={`https://raj-dev.vercel.app/blog/${Astro.url.pathname.split('/').pop()}`}
+  image={frontmatter.image || "/landscape.jpg"}
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": frontmatter.title,
+    "description": frontmatter.description,
+    "author": {
+      "@type": "Person",
+      "name": "Raj Patel",
+      "url": "https://raj-dev.vercel.app",
+      "sameAs": [
+        "https://github.com/imrraaj",
+        "https://x.com/imrraaj"
+      ]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Raj Patel",
+      "url": "https://raj-dev.vercel.app"
+    },
+    "datePublished": getUTCdate(frontmatter.date).toISOString(),
+    "dateModified": getUTCdate(frontmatter.date).toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://raj-dev.vercel.app/blog/${Astro.url.pathname.split('/').pop()}`
+    },
+    "url": `https://raj-dev.vercel.app/blog/${Astro.url.pathname.split('/').pop()}`,
+    "image": frontmatter.image ? `https://raj-dev.vercel.app${frontmatter.image}` : "https://raj-dev.vercel.app/landscape.jpg",
+    "keywords": frontmatter.tags || "",
+    "articleSection": "Blog",
+    "inLanguage": "en-US"
+  })}/>
+  
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="author" content="Raj Patel" />
+    <meta itemprop="datePublished" content={getUTCdate(frontmatter.date).toISOString()} />
+    <meta itemprop="dateModified" content={getUTCdate(frontmatter.date).toISOString()} />
+    
     <header class="my-4">
-      <h1 class="md:text-4xl text-2xl font-black leading-relaxed text-zinc-200">
+      <h1 class="md:text-4xl text-2xl font-black leading-relaxed text-zinc-200" itemprop="headline">
         {frontmatter.title}
       </h1>
       <p class="text-sm font-medium text-zinc-300">
-        Published On: {publishedOn}
+        Published On: <time datetime={getUTCdate(frontmatter.date).toISOString()} itemprop="datePublished">{publishedOn}</time>
       </p>
+      {frontmatter.tags && (
+        <div class="mt-2">
+          <span class="text-xs text-zinc-400">Tags: </span>
+          {frontmatter.tags.split(', ').map(tag => (
+            <span class="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded mr-1" itemprop="keywords">{tag}</span>
+          ))}
+        </div>
+      )}
     </header>
     <div
       class="prose
@@ -53,6 +102,7 @@ const publishedOn = getISTdateString(frontmatter.date);
       prose-code:before:content-['']
       prose-code:after:content-['']
     "
+    itemprop="articleBody"
     >
       <slot />
     </div>

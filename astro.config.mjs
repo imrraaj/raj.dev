@@ -11,7 +11,17 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://raj-dev.vercel.app",
-  integrations: [mdx(), sitemap(), tailwind(), react()],
+  integrations: [
+    mdx(), 
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      entryLimit: 10000,
+    }), 
+    tailwind(), 
+    react()
+  ],
   markdown:{
     shikiConfig:{
       theme: "plastic"

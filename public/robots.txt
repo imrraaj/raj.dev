@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Block specific paths if needed
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /admin/
+
+# Allow crawling of static assets
+Allow: /assets/
+Allow: /images/
+Allow: /videos/
+Allow: /fonts/
+
+# XML Sitemap
+Sitemap: https://raj-dev.vercel.app/sitemap-index.xml
+Sitemap: https://raj-dev.vercel.app/sitemap-0.xml
+
+# RSS Feed
+Sitemap: https://raj-dev.vercel.app/rss.xml
