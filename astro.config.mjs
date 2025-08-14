@@ -10,14 +10,14 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://raj-dev.vercel.app",
+  site: "https://rajpa.tel",
   integrations: [
     mdx(), 
     sitemap({
-      changefreq: 'weekly',
-      priority: 0.7,
+      changefreq: 'daily',
+      priority: 1,
       lastmod: new Date(),
-      entryLimit: 10000,
+      entryLimit: 100,
     }), 
     tailwind(), 
     react()

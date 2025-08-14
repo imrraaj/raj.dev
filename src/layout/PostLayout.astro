@@ -24,7 +24,7 @@ const publishedOn = getISTdateString(frontmatter.date);
 <PageLayout 
   title={frontmatter.title} 
   description={frontmatter.description}
-  canonical={`https://raj-dev.vercel.app/blog/${Astro.url.pathname.split('/').pop()}`}
+  canonical={`https://rajpa.tel/blog/${Astro.url.pathname.split('/').pop()}`}
   image={frontmatter.image || "/landscape.jpg"}
 >
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -35,7 +35,7 @@ const publishedOn = getISTdateString(frontmatter.date);
     "author": {
       "@type": "Person",
       "name": "Raj Patel",
-      "url": "https://raj-dev.vercel.app",
+      "url": "https://rajpa.tel",
       "sameAs": [
         "https://github.com/imrraaj",
         "https://x.com/imrraaj"
@@ -44,16 +44,16 @@ const publishedOn = getISTdateString(frontmatter.date);
     "publisher": {
       "@type": "Person",
       "name": "Raj Patel",
-      "url": "https://raj-dev.vercel.app"
+      "url": "https://rajpa.tel"
     },
     "datePublished": getUTCdate(frontmatter.date).toISOString(),
     "dateModified": getUTCdate(frontmatter.date).toISOString(),
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://raj-dev.vercel.app/blog/${Astro.url.pathname.split('/').pop()}`
+      "@id": `https://rajpa.tel/blog/${Astro.url.pathname.split('/').pop()}`
     },
-    "url": `https://raj-dev.vercel.app/blog/${Astro.url.pathname.split('/').pop()}`,
-    "image": frontmatter.image ? `https://raj-dev.vercel.app${frontmatter.image}` : "https://raj-dev.vercel.app/landscape.jpg",
+    "url": `https://rajpa.tel/blog/${Astro.url.pathname.split('/').pop()}`,
+    "image": frontmatter.image ? `https://rajpa.tel${frontmatter.image}` : "https://rajpa.tel/landscape.jpg",
     "keywords": frontmatter.tags || "",
     "articleSection": "Blog",
     "inLanguage": "en-US"

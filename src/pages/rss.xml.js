@@ -22,7 +22,7 @@ export async function GET(context) {
 				pubDate: pubDate,
 				title: post.frontmatter.title,
 				description: post.frontmatter.description,
-				author: 'rajpatel10953@gmail.com (Raj Patel)',
+				author: 'Raj Patel',
 				categories: post.frontmatter.tags ? post.frontmatter.tags.split(', ') : [],
 			};
 		}),

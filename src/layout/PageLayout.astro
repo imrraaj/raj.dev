@@ -35,7 +35,7 @@ const imageURL = new URL(image, Astro.site).href;
     <link rel="canonical" href={canonicalURL} />
     
     <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} RSS Feed`} href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} RSS Feed`} href={new URL("rss.xml", Astro.site)} />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -58,12 +58,10 @@ const imageURL = new URL(image, Astro.site).href;
     <!-- Additional SEO Meta Tags -->
     <meta name="theme-color" content="#18181b" />
     <meta name="msapplication-TileColor" content="#18181b" />
-    
-    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body class="px-4 max-w-[80ch] mx-auto bg-zinc-900  text-zinc-200">
+  <body class="px-4 max-w-[100ch] mx-auto bg-zinc-900 text-zinc-200 selection:bg-emerald-900">
     <Header />
     <main class="min-h-[500px]">
       <slot />
