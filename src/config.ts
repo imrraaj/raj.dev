@@ -20,6 +20,10 @@ export const NAVIGATION = [
         "text": "Misc",
         "link": "/misc"
     },
+    {
+        "text": "Resume",
+        "link": "/resume"
+    },
 ]
 
 import { Mail, Github, TwitterIcon } from "lucide-react";
