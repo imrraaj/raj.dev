@@ -3,7 +3,6 @@ export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
 
 const { href, class: className, ...props } = Astro.props;
 const isActive = href === Astro.url.pathname.replace(/\/$/, "");
-console.log(href, Astro.url.pathname.replace(/\/$/, ""));
 
 const classes = `inline-flex justify-between items-center text-zinc-100 font-primary font-semibold hover:underline transition-colors duration-200 ${isActive ? "underline text-accent" : ""}`;
 ---

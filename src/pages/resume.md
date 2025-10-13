@@ -5,9 +5,8 @@ description: Raj Patel's Resume
 ---
 # Raj Patel
 **Software Engineer**
-
-rajkpatel1728@gmail.com  
-www.rajpa.tel
+ 
+https://rajpa.tel
 
 ---
 
@@ -15,7 +14,7 @@ www.rajpa.tel
 
 <div style="flex: 2;">
 
-## PROFESSIONAL EXPERIENCE
+# PROFESSIONAL EXPERIENCE
 
 **Software Engineer at rtCamp | 2024 - Current**
 

@@ -4,6 +4,7 @@ import { NAVIGATION, SOCIALS } from "../config";
 ---
 
 <header class="my-8">
+  <div class="flex items-center justify-between">
   <a href="/">
     <div class="flex gap-4 my-2 items-center">
       <img
@@ -14,15 +15,7 @@ import { NAVIGATION, SOCIALS } from "../config";
       <h2 class="font-black text-2xl font-primary">Raj Patel</h2>
     </div>
   </a>
-  <nav class="my-4 flex items-center justify-between">
-    <div class="flex gap-4">
-      {
-        NAVIGATION.map((el) => (
-          <HeaderLink href={el.link}>{el.text}</HeaderLink>
-        ))
-      }
-    </div>
-    <div class="flex gap-4">
+  <div class="flex gap-4">
       {
         SOCIALS.map((el) => {
           return (
@@ -33,5 +26,15 @@ import { NAVIGATION, SOCIALS } from "../config";
         })
       }
     </div>
+  </div>
+  <nav class="my-4 flex items-center justify-between">
+    <div class="flex gap-4">
+      {
+        NAVIGATION.map((el) => (
+          <HeaderLink href={el.link}>{el.text}</HeaderLink>
+        ))
+      }
+    </div>
+    
   </nav>
 </header>
