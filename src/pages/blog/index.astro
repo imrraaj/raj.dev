@@ -25,36 +25,63 @@ const posts = unsorted_posts.sort((a, b) => {
 });
 ---
 
-<PageLayout title="Blog">
-  <div class="post-container">
-    {
-      posts.map((post) => {
-        return (
-          <div class="my-10 flex flex-col gap-2">
-            <div class="flex flex-col items-start md:flex-row md:justify-between md:items-center">
-              <h2 class="md:text-2xl text-xl font-extrabold text-zinc-300 font-primary">
-                <a
-                  href={post.url}
-                  class="hover:text-accent transition-colors duration-200"
+<PageLayout 
+  title="Blog" 
+  description="Articles about programming, philosophy, movies, and life by Raj Patel"
+  keywords="Blog, Programming, Philosophy, Movies, Software Development, Technical Writing"
+>
+  <section>
+    <div class="mb-10">
+      <h1 class="text-4xl font-black text-text-primary font-primary mb-3">Blog</h1>
+      <p class="text-lg text-text-muted">Thoughts on programming, philosophy, movies, and life</p>
+    </div>
+
+    <div class="space-y-8">
+      {
+        posts.map((post) => {
+          return (
+            <article class="flex justify-start items-start gap-6">
+                
+                <time
+                  datetime={getUTCdate(post.frontmatter.date).toISOString()} 
+                  class="text-sm text-text-disabled whitespace-nowrap"
                 >
-                  {post.frontmatter.title}
-                </a>
-              </h2>
-              <span class="text-sm text-zinc-500">
-                {getISTdateString(post.frontmatter.date)}
-              </span>
-            </div>
-            <p class="text-xs flex gap-2">
-              {post.frontmatter.tags &&
-                post.frontmatter.tags
-                  .split(",")
-                  .map((tag: string) => (
-                    <span class="bg-zinc-700 px-1 rounded-sm">{tag}</span>
-                  ))}
-            </p>
-          </div>
-        );
-      })
-    }
-  </div>
+                  {getISTdateString(post.frontmatter.date)}
+                </time>
+
+                <div>
+                  <h2 class="md:text-2xl leading-none mt-0 pt-0 pb-2 text-xl font-bold text-text-secondary font-primary group-hover:text-primary-500 transition-colors">
+                    <a href={post.url} class="hover:underline decoration-primary-500 underline-offset-4">
+                      {post.frontmatter.title}
+                    </a>
+                  </h2>
+                  {post.frontmatter.description && (
+                    <p class="text-sm text-text-muted mb-3 line-clamp-2">
+                      {post.frontmatter.description}
+                    </p>
+                  )}
+                  {post.frontmatter.tags && (
+                    <div class="flex flex-wrap gap-2">
+                      {post.frontmatter.tags
+                        .split(",")
+                        .map((tag: string) => (
+                          <span class="px-2 py-1 text-xs font-medium bg-bg-tertiary text-text-tertiary rounded-md border border-bg-border">
+                            {tag.trim()}
+                          </span>
+                        ))}
+                    </div>
+                  )}
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+
+    {posts.length === 0 && (
+      <div class="text-center py-12">
+        <p class="text-text-muted text-lg">No posts yet. Check back soon!</p>
+      </div>
+    )}
+  </section>
 </PageLayout>

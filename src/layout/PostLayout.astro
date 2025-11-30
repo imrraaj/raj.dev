@@ -2,12 +2,12 @@
 import PageLayout from "./PageLayout.astro";
 const { frontmatter } = Astro.props;
 
-const getUTCdate = (date) => {
+const getUTCdate = (date: string) => {
   const [day, month, year] = date.split("-").map(Number);
   const inputDateUTC = new Date(Date.UTC(year, month - 1, day));
   return inputDateUTC;
 };
-const getISTdateString = (date) => {
+const getISTdateString = (date: string) => {
   const inputDateUTC = getUTCdate(date);
   const istDateString = inputDateUTC.toLocaleDateString("en-US", {
     timeZone: "Asia/Kolkata",
@@ -19,15 +19,21 @@ const getISTdateString = (date) => {
 };
 
 const publishedOn = getISTdateString(frontmatter.date);
+const publishedTime = getUTCdate(frontmatter.date).toISOString();
+const modifiedTime = frontmatter.modified ? getUTCdate(frontmatter.modified).toISOString() : publishedTime;
 ---
 
 <PageLayout 
   title={frontmatter.title} 
-  description={frontmatter.description}
+  description={frontmatter.description || `Read ${frontmatter.title} by Raj Patel`}
   canonical={`https://rajpa.tel/blog/${Astro.url.pathname.split('/').pop()}`}
   image={frontmatter.image || "/landscape.jpg"}
+  type="article"
+  publishedTime={publishedTime}
+  modifiedTime={modifiedTime}
+  keywords={frontmatter.tags || "Blog, Programming, Technology"}
 >
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": frontmatter.title,
@@ -46,8 +52,8 @@ const publishedOn = getISTdateString(frontmatter.date);
       "name": "Raj Patel",
       "url": "https://rajpa.tel"
     },
-    "datePublished": getUTCdate(frontmatter.date).toISOString(),
-    "dateModified": getUTCdate(frontmatter.date).toISOString(),
+    "datePublished": publishedTime,
+    "dateModified": modifiedTime,
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `https://rajpa.tel/blog/${Astro.url.pathname.split('/').pop()}`
@@ -59,48 +65,73 @@ const publishedOn = getISTdateString(frontmatter.date);
     "inLanguage": "en-US"
   })}/>
   
-  <article itemscope itemtype="https://schema.org/BlogPosting">
+  <article itemscope itemtype="https://schema.org/BlogPosting" class="py-8">
     <meta itemprop="author" content="Raj Patel" />
-    <meta itemprop="datePublished" content={getUTCdate(frontmatter.date).toISOString()} />
-    <meta itemprop="dateModified" content={getUTCdate(frontmatter.date).toISOString()} />
+    <meta itemprop="datePublished" content={publishedTime} />
+    <meta itemprop="dateModified" content={modifiedTime} />
     
-    <header class="my-4">
-      <h1 class="md:text-4xl text-2xl font-black leading-relaxed text-zinc-200" itemprop="headline">
+    <header class="mb-8 pb-6 border-b border-bg-border">
+      <h1 class="md:text-4xl text-3xl font-black leading-tight text-text-primary mb-4 font-primary" itemprop="headline">
         {frontmatter.title}
       </h1>
-      <p class="text-sm font-medium text-zinc-300">
-        Published On: <time datetime={getUTCdate(frontmatter.date).toISOString()} itemprop="datePublished">{publishedOn}</time>
-      </p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-text-muted">
+        <time datetime={publishedTime} itemprop="datePublished" class="font-medium">
+          Published on {publishedOn}
+        </time>
+        {frontmatter.readingTime && (
+          <span class="flex items-center gap-1">
+            <span class="text-text-disabled">•</span>
+            <span>{frontmatter.readingTime} min read</span>
+          </span>
+        )}
+      </div>
       {frontmatter.tags && (
-        <div class="mt-2">
-          <span class="text-xs text-zinc-400">Tags: </span>
-          {frontmatter.tags.split(', ').map(tag => (
-            <span class="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded mr-1" itemprop="keywords">{tag}</span>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {(frontmatter.tags as string).split(', ').map((tag) => (
+            <span class="px-3 py-1 text-xs font-medium bg-bg-tertiary text-text-tertiary rounded-full border border-bg-border" itemprop="keywords">
+              {tag}
+            </span>
           ))}
         </div>
       )}
     </header>
     <div
-      class="prose
+      class="prose prose-lg
       text-md
       text-left
-      my-4
       min-w-full
       prose-headings:font-black
-      prose-headings:text-zinc-200
-      prose-strong:text-emerald-400
-      prose-strong:font-bold
+      prose-headings:text-text-primary
+      prose-h1:text-3xl
+      prose-h2:text-2xl
+      prose-h3:text-xl
+      prose-h4:text-lg
+      prose-strong:text-primary-400
+      prose-strong:font-semibold
       prose-img:rounded-xl
       prose-img:mx-auto
-      prose-a:bg-zinc-800/80
+      prose-img:border
+      prose-img:border-bg-border
+      prose-a:bg-bg-tertiary/50
       prose-a:px-1
-      prose-a:text-zinc-300
-      prose-p:text-zinc-100
+      prose-a:py-0.5
+      prose-a:rounded
+      prose-a:text-primary-400
+      prose-a:no-underline
+      prose-a:hover:bg-bg-tertiary
+      prose-a:hover:text-primary-300
+      prose-a:transition-colors
+      prose-p:text-text-secondary
+      prose-p:leading-relaxed
       prose-blockquote:font-serif
-      prose-li:text-zinc-200
-      prose-code:text-zinc-200
+      prose-blockquote:border-l-primary-500
+      prose-li:text-text-secondary
+      prose-code:text-text-secondary
       prose-code:before:content-['']
       prose-code:after:content-['']
+      prose-pre:bg-bg-tertiary
+      prose-pre:border
+      prose-pre:border-bg-border
     "
     itemprop="articleBody"
     >

@@ -1,7 +1,7 @@
 ---
 import PageLayout from "../../layout/PageLayout.astro"
 
-const getUTCdate = (date) => {
+const getUTCdate = (date: string) => {
   const [day, month, year] = date.split("-").map(Number);
   const inputDateUTC = new Date(Date.UTC(year, month - 1, day));
   return inputDateUTC;
@@ -17,17 +17,27 @@ const posts = unsorted_posts.sort((a, b) => {
 ---
 
 <PageLayout title="Misc.">
-  <ul class="post-container list-disc px-4">
-    {
-      posts.map((post) => {
-        return (
-          <li>
-            <h2 class="font-medium">
-              <a class="hover:underline dark:text-zinc-300" href={post.url}>{post.frontmatter.title}</a>
-            </h2>
-          </li>
-        );
-      })
-    }
-  </ul>
+  <section>
+    <div class="mb-8">
+      <h1 class="text-4xl font-black text-text-primary font-primary mb-3">Miscellaneous</h1>
+      <p class="text-lg text-text-muted">Random thoughts, poems, and quotes I find interesting</p>
+    </div>
+
+    <ul class="list-disc list-inside space-y-1">
+      {
+        posts.map((post) => {
+          return (
+            <li class="text-xl font-semibold text-text-secondary group-hover:text-primary-500 transition-colors">
+                <a 
+                  href={post.url}
+                  class="hover:underline underline-offset-4"
+                >
+                {post.frontmatter.title}
+              </a>
+              </li>
+          );
+        })
+      }
+    </ul>
+  </section>
 </PageLayout>

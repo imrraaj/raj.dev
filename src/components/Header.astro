@@ -3,38 +3,44 @@ import HeaderLink from "./HeaderLink.astro";
 import { NAVIGATION, SOCIALS } from "../config";
 ---
 
-<header class="my-8">
-  <div class="flex items-center justify-between">
-  <a href="/">
-    <div class="flex gap-4 my-2 items-center">
-      <img
-        class="w-[60px] aspect-square rounded-full"
-        src="/header.jpg"
-        alt="An image from Raj's twitter profile"
-      />
-      <h2 class="font-black text-2xl font-primary">Raj Patel</h2>
-    </div>
-  </a>
-  <div class="flex gap-4">
+<header class="my-8 border-b border-bg-border pb-6">
+  <div class="flex items-center justify-between flex-wrap gap-4">
+    <a href="/" class="flex-shrink-0">
+      <div class="flex gap-4 my-2 items-center">
+        <img
+          class="w-[60px] aspect-square rounded-full ring-2 ring-bg-border"
+          src="/header.jpg"
+          alt="Profile photo of Raj Patel"
+        />
+        <h2 class="font-black text-2xl font-primary text-text-primary">
+          Raj Patel
+        </h2>
+      </div>
+    </a>
+    <div class="flex">
       {
         SOCIALS.map((el) => {
           return (
-            <HeaderLink href={el.link} target="_blank" title={el.link}>
-              {<el.element />}
+            <HeaderLink 
+              href={el.link} 
+              target="_blank" 
+              title={el.link}
+              class="text-text-muted hover:text-primary-500 transition-colors p-2 hover:bg-bg-secondary rounded-lg"
+            >
+              {<el.element size={20} />}
             </HeaderLink>
           );
         })
       }
     </div>
   </div>
-  <nav class="my-4 flex items-center justify-between">
-    <div class="flex gap-4">
+  <nav class="mt-2 flex items-center justify-between">
+    <div class="flex gap-6 flex-wrap">
       {
         NAVIGATION.map((el) => (
           <HeaderLink href={el.link}>{el.text}</HeaderLink>
         ))
       }
     </div>
-    
   </nav>
 </header>

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Block specific paths if needed
+# Block specific paths
 Disallow: /api/
 Disallow: /_astro/
 Disallow: /admin/
@@ -11,6 +11,9 @@ Allow: /assets/
 Allow: /images/
 Allow: /videos/
 Allow: /fonts/
+
+# Crawl-delay (in seconds) - optional, adjust as needed
+# Crawl-delay: 1
 
 # XML Sitemap
 Sitemap: https://rajpa.tel/sitemap-index.xml

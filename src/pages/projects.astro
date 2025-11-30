@@ -1,6 +1,6 @@
 ---
 import PageLayout from "../layout/PageLayout.astro";
-import { ExternalLinkIcon, GithubIcon } from "lucide-react";
+import { ExternalLinkIcon, Github } from "lucide-react";
 
 const projects = [
   {
@@ -14,7 +14,7 @@ const projects = [
       "Supports custom shaders applied to video frames",
       "Custom shaders for dimming, brightness, and contrast adjustments, color grading, and more",
     ],
-    technologies: "C, ffmpeg, Raylib",
+    technologies: ["C", "ffmpeg", "Raylib"],
     github: "https://github.com/imrraaj/byte-stream",
   },
   {
@@ -28,7 +28,7 @@ const projects = [
       "Write Ahead Log (WAL) for data persistence using a custom binary format",
       "Supports basic data structures like strings, lists, sets, and hashes",
     ],
-    technologies: "Golang, TCP Networking, Concurrent Maps",
+    technologies: ["Golang", "TCP Networking", "Concurrent Maps"],
     github: "https://github.com/imrraaj/gocached",
   },
   {
@@ -40,7 +40,7 @@ const projects = [
       "Realtime token price using Uniswap Liquidity pools",
       "Supports multiple blockchains like Arbitrum, Base, and BSC",
     ],
-    technologies: "Typescript, React, Solidity, Tailwind CSS",
+    technologies: ["Typescript", "React", "Solidity", "Tailwind CSS"],
     github: "https://github.com/imrraaj/dexify",
   },
   {
@@ -51,53 +51,83 @@ const projects = [
       "Hash function optimization and collision handling",
       "Memory-efficient design for large datasets",
     ],
-    technologies: "C++, Data Structures, Algorithms",
+    technologies: ["C++", "Data Structures", "Algorithms"],
     github: "https://github.com/imrraaj/gloom",
   },
 ];
 ---
 
-<PageLayout title="Projects">
-  <div class="space-y-8">
-    {
-      projects.map((project) => (
-        <div class="border border-zinc-700 hover:border-emerald-700 rounded-lg p-6">
-          <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-black font-primary">
-              <a
-                href={project.github}
-                class="hover:text-accent transition-colors duration-200"
-              >{project.title}</a></h2>
-            <div class="flex gap-3">
-              <a
-                href={project.github}
-                class="text-zinc-500 hover:text-accent transition-colors duration-200"
-              >
-                <GithubIcon size={20} />
-              </a>
-              <a
-                href={project.github}
-                class="text-zinc-500 hover:text-accent transition-colors duration-200"
-              >
-                <ExternalLinkIcon size={20} />
-              </a>
+<PageLayout 
+  title="Projects" 
+  description="Featured projects by Raj Patel - including Byte Stream, gocached, dexify, and more"
+  keywords="Projects, Portfolio, Software Development, Open Source, C, Golang, TypeScript"
+>
+  <section>
+    <div class="mb-8">
+      <h1 class="text-4xl font-black text-text-primary font-primary mb-3">Projects</h1>
+      <p class="text-lg text-text-muted">A collection of things I've built</p>
+    </div>
+
+    <div class="grid gap-6">
+      {
+        projects.map((project) => (
+          <article class="group border border-bg-border bg-bg-secondary/50 rounded-xl p-6 hover:shadow-xl hover:shadow-primary-500/5">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex-1">
+                <h2 class="text-2xl font-black font-primary text-text-primary group-hover:text-primary-500 transition-colors mb-2">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" class="hover:underline decoration-primary-500 underline-offset-4">
+                    {project.title}
+                  </a>
+                </h2>
+                <p class="text-text-muted text-base mb-4">{project.description}</p>
+              </div>
+              <div class="flex gap-3 ml-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-text-disabled hover:text-primary-500 hover:bg-bg-tertiary p-2 rounded-lg transition-all duration-200"
+                  aria-label={`View ${project.title} on GitHub`}
+                >
+                  <Github size={20} />
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-text-disabled hover:text-primary-500 hover:bg-bg-tertiary p-2 rounded-lg transition-all duration-200"
+                  aria-label={`Open ${project.title} in new tab`}
+                >
+                  <ExternalLinkIcon size={20} />
+                </a>
+              </div>
             </div>
-          </div>
-          <p class="text-zinc-300 text-sm mb-4">{project.description}</p>
-          <div class="mb-4">
-            <h4 class="text-zinc-300">Features</h4>
-            <ul class="list-disc px-4 text-sm text-white space-y-1">
-              {project.features.map((feature) => (
-                <li>{feature}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-zinc-300">Stack</h4>
-            <p class="text-white text-sm">{project.technologies}</p>
-          </div>
-        </div>
-      ))
-    }
-  </div>
+
+            <div class="mb-4">
+              <h3 class="text-sm font-semibold text-text-tertiary uppercase tracking-wide mb-2">Features</h3>
+              <ul class="space-y-2">
+                {project.features.map((feature) => (
+                  <li class="text-sm text-text-tertiary flex items-start">
+                    <span class="text-primary-500 mr-2 mt-1">▸</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-semibold text-text-tertiary uppercase tracking-wide mb-2">Tech Stack</h3>
+              <div class="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span class="px-3 py-1 text-xs font-medium bg-bg-tertiary text-text-tertiary rounded-full border border-bg-border">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 </PageLayout>
