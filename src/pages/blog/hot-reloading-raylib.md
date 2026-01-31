@@ -1,7 +1,7 @@
 ---
 layout: ../../layout/PostLayout.astro
 title: How to hot-reload raylib from scratch
-date: 12-08-2024
+date: 12-08-2025
 description: Why? Because I felt like it.
 published: true
 tags: C, raylib

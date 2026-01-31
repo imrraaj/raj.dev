@@ -1,7 +1,7 @@
 ---
 layout: ../../layout/PostLayout.astro
 title: Writing a Custom React Renderer
-date: 03-08-2024
+date: 03-08-2025
 description: Why? Because I felt like it.
 published: true
 tags: react, javascript, internals
