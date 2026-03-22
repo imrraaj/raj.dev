@@ -1,0 +1,53 @@
+---
+import TagBadge from "./TagBadge.astro";
+import { formatDate } from "../utils/date";
+import { getReadingTime } from "../utils/reading-time";
+
+interface Props {
+  title: string;
+  description?: string;
+  date: string;
+  tags?: string[];
+  slug: string;
+  body?: string;
+  image?: string;
+}
+
+const { title, description, date, tags = [], slug, body = "", image } = Astro.props;
+const readingTime = getReadingTime(body);
+const coverImage = image || "/blog-cover.png";
+---
+
+<article class="group border border-border-default rounded-xl overflow-hidden bg-bg-surface/50 hover:border-primary-500/50 hover:bg-bg-surface transition-all duration-300">
+  <a href={`/blog/${slug}`} class="block">
+    <div class="relative h-40 overflow-hidden">
+      <img
+        src={coverImage}
+        alt={title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-bg-surface/90 to-transparent"></div>
+    </div>
+    <div class="p-5 relative">
+      <div class="flex items-center gap-3 mb-3">
+        <time datetime={date} class="text-xs font-mono text-text-muted">
+          {formatDate(date)}
+        </time>
+        <span class="text-text-disabled text-xs">&#183;</span>
+        <span class="text-xs font-mono text-text-muted">{readingTime} min read</span>
+      </div>
+      <h3 class="font-display text-xl md:text-2xl text-text-primary group-hover:text-primary-400 transition-colors mb-2">
+        {title}
+      </h3>
+      {description && (
+        <p class="text-sm text-text-muted line-clamp-2 mb-4">{description}</p>
+      )}
+    </div>
+  </a>
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 px-5 pb-5">
+      {tags.map((tag) => <TagBadge tag={tag} />)}
+    </div>
+  )}
+</article>

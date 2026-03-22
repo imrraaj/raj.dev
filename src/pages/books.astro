@@ -1,0 +1,42 @@
+---
+import PageLayout from "../layout/PageLayout.astro";
+import { books } from "../data/books";
+
+const statusLabel = {
+  read: "Read",
+  reading: "Reading",
+  "want-to-read": "Want to Read",
+};
+
+const statusColor = {
+  read: "text-green-400 bg-green-400/10",
+  reading: "text-primary-500 bg-primary-500/10",
+  "want-to-read": "text-text-muted bg-bg-elevated",
+};
+---
+
+<PageLayout
+  title="Books"
+  description="Books I've read, am reading, or want to read"
+>
+  <section class="py-8">
+    <div class="mb-10">
+      <h1 class="text-5xl font-display text-text-primary mb-3">Bookshelf</h1>
+      <p class="text-lg text-text-muted">What I'm reading and have read</p>
+    </div>
+
+    <div class="grid gap-4">
+      {books.map((book) => (
+        <div class="flex items-center justify-between p-4 border border-border-default rounded-xl hover:border-border-light transition-colors">
+          <div>
+            <h3 class="font-display text-lg text-text-primary">{book.title}</h3>
+            <p class="text-sm text-text-muted">{book.author}</p>
+          </div>
+          <span class={`px-3 py-1 text-xs font-mono rounded-full ${statusColor[book.status]}`}>
+            {statusLabel[book.status]}
+          </span>
+        </div>
+      ))}
+    </div>
+  </section>
+</PageLayout>

@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-
 @font-face {
   font-family: "Iosevka";
   src: url("/fonts/iosevka-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 html {
@@ -12,7 +11,7 @@ html {
   margin: 0;
   box-sizing: border-box;
   font-size: 18px;
-  font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+  font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -20,20 +19,14 @@ html {
   box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  @apply font-bold text-text-primary py-1 rounded w-fit;
+/* Headings use serif display font */
+h1, h2, h3, h4 {
+  font-family: "Instrument Serif", Georgia, serif;
+  @apply font-normal text-text-primary py-1;
 }
 
-h5,
-h6 {
-  @apply font-bold text-text-secondary px-2 py-1 rounded w-fit;
-}
-
-h3 {
-  @apply text-lg;
+h5, h6 {
+  @apply font-semibold text-text-secondary px-2 py-1;
 }
 
 img {
@@ -41,59 +34,64 @@ img {
   height: auto;
 }
 
+/* Inline code */
 code {
   padding: 2px 6px;
-  border: 1px solid theme('colors.zinc.700');
+  border: 1px solid theme('colors.border-default');
   border-radius: 4px;
   font-family: "Iosevka", Consolas, Monaco, "Courier New", monospace;
-  background-color: theme('colors.zinc.800');
-  color: theme('colors.zinc.50');
+  background-color: theme('colors.bg-elevated');
+  color: theme('colors.text-primary');
   font-size: 0.9em;
 }
 
+/* Code blocks */
 pre {
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid theme('colors.zinc.700');
-  background-color: theme('colors.zinc.800');
-  color: theme('colors.zinc.50');
+  border: 1px solid theme('colors.border-default');
+  background-color: theme('colors.bg-elevated') !important;
+  color: theme('colors.text-primary');
   overflow-x: auto;
   line-height: 1.6;
 }
 
 pre::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 pre::-webkit-scrollbar-track {
-  background: theme('colors.zinc.900');
-  border-radius: 4px;
+  background: theme('colors.bg-base');
+  border-radius: 3px;
 }
 
 pre::-webkit-scrollbar-thumb {
-  background: theme('colors.zinc.600');
-  border-radius: 4px;
+  background: theme('colors.border-light');
+  border-radius: 3px;
 }
 
 pre::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.zinc.500');
+  background: theme('colors.text-disabled');
 }
 
-pre>code {
+pre > code {
   font-family: "Iosevka", Consolas, Monaco, "Courier New", monospace;
-  color: theme('colors.zinc.50');
+  color: theme('colors.text-primary');
   background: transparent;
   border: none;
   padding: 0;
 }
 
-pre>code::before,
-pre>code::after {
+pre > code::before,
+pre > code::after {
   content: "" !important;
 }
 
+/* Blockquotes */
 blockquote {
-  @apply italic m-0 border-l-4 pl-4 py-2 font-semibold border-primary-500 bg-zinc-800/50 text-zinc-100;
+  @apply italic m-0 border-l-4 pl-4 py-2 border-primary-500;
+  background-color: theme('colors.bg-elevated');
+  color: theme('colors.text-secondary');
 }
 
 blockquote p::before,
@@ -101,14 +99,10 @@ blockquote p::after {
   content: "" !important;
 }
 
+/* Links */
 .post-body a {
   text-underline-offset: 4px;
   @apply underline decoration-primary-500 hover:decoration-primary-400;
-}
-
-a:hover,
-a[data-focused="true"] {
-  @apply text-text-secondary underline decoration-primary-1 underline-offset-4;
 }
 
 a:focus-visible,
@@ -116,7 +110,7 @@ button:focus-visible {
   @apply outline-2 outline-offset-2 outline-primary-500 rounded;
 }
 
-/* Selection color */
+/* Selection */
 ::selection {
-  @apply bg-primary-500/30 text-zinc-50;
+  @apply bg-primary-500/30 text-text-primary;
 }

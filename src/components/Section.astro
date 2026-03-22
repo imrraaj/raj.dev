@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  viewAllLink?: string;
+  viewAllText?: string;
+}
+
+const { title, subtitle, viewAllLink, viewAllText = "View all" } = Astro.props;
+---
+
+<section class="py-16 border-b border-border-default last:border-b-0">
+  <div class="flex items-end justify-between mb-8">
+    <div>
+      <h2 class="text-3xl md:text-4xl font-display text-text-primary">{title}</h2>
+      {subtitle && <p class="text-text-muted mt-2">{subtitle}</p>}
+    </div>
+    {viewAllLink && (
+      <a
+        href={viewAllLink}
+        class="text-sm font-mono text-primary-500 hover:text-primary-400 transition-colors hidden md:inline-flex items-center gap-1"
+      >
+        {viewAllText} <span aria-hidden="true">&rarr;</span>
+      </a>
+    )}
+  </div>
+  <slot />
+  {viewAllLink && (
+    <a
+      href={viewAllLink}
+      class="text-sm font-mono text-primary-500 hover:text-primary-400 transition-colors md:hidden inline-flex items-center gap-1 mt-6"
+    >
+      {viewAllText} <span aria-hidden="true">&rarr;</span>
+    </a>
+  )}
+</section>

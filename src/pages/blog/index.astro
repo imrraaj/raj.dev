@@ -1,82 +1,61 @@
 ---
 import PageLayout from "../../layout/PageLayout.astro";
+import BlogHeroCard from "../../components/BlogHeroCard.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+import { parseDate } from "../../utils/date";
 
-const getUTCdate = (date: string) => {
-  const [day, month, year] = date.split("-").map(Number);
-  const inputDateUTC = new Date(Date.UTC(year, month - 1, day));
-  return inputDateUTC;
-};
-const getISTdateString = (date: string) => {
-  const inputDateUTC = getUTCdate(date);
-  const istDateString = inputDateUTC.toLocaleDateString("en-US", {
-    timeZone: "Asia/Kolkata",
-    year: "numeric",
-    month: "short",
-    day: "2-digit",
-  });
-  return istDateString;
-};
-const astro_posts = await Astro.glob("./*md");
-const unsorted_posts = astro_posts.filter((o) => o.frontmatter.published);
-const posts = unsorted_posts.sort((a, b) => {
-  const da = getUTCdate(a.frontmatter.date);
-  const db = getUTCdate(b.frontmatter.date);
-  return db.getTime() - da.getTime();
-});
+const allPosts = await getCollection("blog");
+const posts = allPosts
+  .filter((post) => post.data.published)
+  .sort((a, b) => parseDate(b.data.date).getTime() - parseDate(a.data.date).getTime());
+
+const [heroPost, ...restPosts] = posts;
 ---
 
-<PageLayout 
-  title="Blog" 
-  description="Articles about programming, philosophy, movies, and life by Raj Patel"
-  keywords="Blog, Programming, Philosophy, Movies, Software Development, Technical Writing"
+<PageLayout
+  title="Blog"
+  description="Articles about programming, systems design, and the web by Raj Patel"
+  keywords="Blog, Programming, Systems Design, Software Development, Technical Writing"
+  wide
 >
-  <section>
+  <section class="py-8">
     <div class="mb-10">
-      <h1 class="text-4xl font-black text-text-primary font-primary mb-3">Blog</h1>
-      <p class="text-lg text-text-muted">Thoughts on programming, philosophy, movies, and life</p>
+      <h1 class="text-5xl md:text-6xl font-display text-text-primary mb-3">Blog</h1>
+      <p class="text-lg text-text-muted">
+        Thoughts on programming, systems, and the craft of building software
+      </p>
     </div>
 
-    <div class="space-y-8">
-      {
-        posts.map((post) => {
-          return (
-            <article class="flex justify-start items-start gap-6">
-                
-                <time
-                  datetime={getUTCdate(post.frontmatter.date).toISOString()} 
-                  class="text-sm text-text-disabled whitespace-nowrap"
-                >
-                  {getISTdateString(post.frontmatter.date)}
-                </time>
+    {heroPost && (
+      <div class="mb-10">
+        <BlogHeroCard
+          title={heroPost.data.title}
+          description={heroPost.data.description}
+          date={heroPost.data.date}
+          tags={heroPost.data.tags}
+          slug={heroPost.slug}
+          body={heroPost.body}
+          image={heroPost.data.image}
+        />
+      </div>
+    )}
 
-                <div>
-                  <h2 class="md:text-2xl leading-none mt-0 pt-0 pb-2 text-xl font-bold text-text-secondary font-primary group-hover:text-primary-500 transition-colors">
-                    <a href={post.url} class="hover:underline decoration-primary-500 underline-offset-4">
-                      {post.frontmatter.title}
-                    </a>
-                  </h2>
-                  {post.frontmatter.description && (
-                    <p class="text-sm text-text-muted mb-3 line-clamp-2">
-                      {post.frontmatter.description}
-                    </p>
-                  )}
-                  {post.frontmatter.tags && (
-                    <div class="flex flex-wrap gap-2">
-                      {post.frontmatter.tags
-                        .split(",")
-                        .map((tag: string) => (
-                          <span class="px-2 py-1 text-xs font-medium bg-bg-tertiary text-text-tertiary rounded-md border border-bg-border">
-                            {tag.trim()}
-                          </span>
-                        ))}
-                    </div>
-                  )}
-              </div>
-            </article>
-          );
-        })
-      }
-    </div>
+    {restPosts.length > 0 && (
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {restPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            tags={post.data.tags}
+            slug={post.slug}
+            body={post.body}
+            image={post.data.image}
+          />
+        ))}
+      </div>
+    )}
 
     {posts.length === 0 && (
       <div class="text-center py-12">

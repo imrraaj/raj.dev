@@ -1,0 +1,75 @@
+---
+import { AUTHOR } from "../config";
+---
+
+<section class="relative py-16 md:py-24 border-b border-border-default overflow-hidden">
+  <!-- Innovation collage background -->
+  <div class="absolute -inset-20 hidden lg:block">
+    <img
+      src="/landscape.jpg"
+      alt=""
+      id="hero-collage"
+      class="absolute top-0 left-0 object-cover opacity-20"
+      style="width: 250%; height: 250%; max-width: none;"
+      aria-hidden="true"
+    />
+    <!-- Fade on all four sides with wide vignette -->
+    <div class="absolute inset-0 bg-gradient-to-r from-bg-base via-bg-base/30 to-bg-base"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-bg-base via-bg-base/30 to-bg-base"></div>
+  </div>
+
+  <div class="relative flex flex-col-reverse md:flex-row items-center md:items-start gap-10 md:gap-16">
+    <div class="flex-1">
+      <p class="font-mono text-sm text-primary-500 mb-3">Hi, I'm</p>
+      <h1 class="font-display text-5xl md:text-7xl text-text-primary mb-4 leading-[1.1]">
+        {AUTHOR.name}
+      </h1>
+      <p class="font-mono text-lg text-text-muted mb-6">
+        {AUTHOR.title} <span class="text-text-disabled">@</span> {AUTHOR.company}
+      </p>
+      <p class="text-text-secondary text-lg max-w-lg mb-8 leading-relaxed">
+        {AUTHOR.bio}
+      </p>
+      <div class="flex gap-4">
+        <a
+          href="/blog"
+          class="px-6 py-3 bg-primary-500 text-bg-base font-medium rounded-lg hover:bg-primary-400 transition-colors text-sm"
+        >
+          Read the Blog
+        </a>
+        <a
+          href="/projects"
+          class="px-6 py-3 border border-border-light text-text-primary rounded-lg hover:border-primary-500 hover:text-primary-500 transition-colors text-sm"
+        >
+          View Projects
+        </a>
+      </div>
+    </div>
+    <div class="relative flex-shrink-0 hidden lg:block">
+      <div class="relative">
+        <div class="absolute -inset-4 bg-primary-500/10 rounded-full blur-2xl"></div>
+        <img
+          src="/header.jpg"
+          alt={`Photo of ${AUTHOR.name}`}
+          class="relative w-40 h-40 md:w-52 md:h-52 rounded-full object-cover ring-2 ring-border-default"
+          width="208"
+          height="208"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const img = document.getElementById('hero-collage');
+  if (img && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    function drift() {
+      const x = -Math.random() * 10;
+      const y = -Math.random() * 10;
+      img.style.transition = 'transform 20s cubic-bezier(0.25, 0.1, 0.25, 1)';
+      img.style.transform = `translate(${x}%, ${y}%)`;
+      setTimeout(drift, Math.random() * 3000);
+    }
+    drift();
+  }
+</script>

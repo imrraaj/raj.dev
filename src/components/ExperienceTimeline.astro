@@ -1,0 +1,40 @@
+---
+import { experience } from "../data/experience";
+---
+
+<div class="space-y-8">
+  {experience.map((job) => (
+    <div class="relative pl-8 border-l-2 border-border-default">
+      <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary-500 border-2 border-bg-base"></div>
+      <div class="mb-1">
+        <h3 class="font-display text-2xl text-primary-500">
+          {job.url ? (
+            <a href={job.url} target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors">
+              {job.company}
+            </a>
+          ) : (
+            job.company
+          )}
+        </h3>
+        <p class="text-text-primary font-medium">{job.role}</p>
+        <p class="font-mono text-xs text-text-muted mt-1">{job.period}</p>
+      </div>
+      <p class="text-text-secondary text-sm mt-3 mb-3">{job.description}</p>
+      <ul class="space-y-2 mb-4">
+        {job.highlights.map((highlight) => (
+          <li class="text-sm text-text-tertiary flex items-start gap-2">
+            <span class="text-primary-500 mt-1 flex-shrink-0">&#8250;</span>
+            <span>{highlight}</span>
+          </li>
+        ))}
+      </ul>
+      <div class="flex flex-wrap gap-2">
+        {job.technologies.map((tech) => (
+          <span class="px-2 py-0.5 text-xs font-mono bg-bg-elevated text-text-tertiary rounded border border-border-default">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>

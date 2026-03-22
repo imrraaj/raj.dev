@@ -1,0 +1,92 @@
+---
+import PageLayout from "../layout/PageLayout.astro";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import { AUTHOR } from "../config";
+import { skills } from "../data/skills";
+import { education } from "../data/education";
+---
+
+<PageLayout
+  title="About"
+  description={`About ${AUTHOR.name} — ${AUTHOR.title} at ${AUTHOR.company}`}
+  keywords="Raj Patel, Software Engineer, About, Resume, Experience"
+>
+  <section class="py-8">
+    <!-- Intro -->
+    <div class="flex flex-col md:flex-row items-start gap-8 mb-16">
+      <img
+        src="/header.jpg"
+        alt={`Photo of ${AUTHOR.name}`}
+        class="w-32 h-32 rounded-2xl object-cover ring-2 ring-border-default flex-shrink-0"
+        width="128"
+        height="128"
+      />
+      <div>
+        <h1 class="font-display text-4xl md:text-5xl text-text-primary mb-2">
+          {AUTHOR.name}
+        </h1>
+        <p class="font-mono text-sm text-primary-500 mb-4">
+          {AUTHOR.title} @ {AUTHOR.company}
+        </p>
+        <p class="text-text-secondary leading-relaxed max-w-xl">
+          Passionate engineer with expertise in systems programming, modern web technologies, and blockchain development.
+          Currently delivering high-performance web solutions using headless CMS and React-based systems.
+          Strong foundation in theoretical computer science with experience in compiler construction and cloud computing.
+        </p>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="mb-16">
+      <h2 class="font-display text-3xl text-text-primary mb-8">Experience</h2>
+      <ExperienceTimeline />
+    </div>
+
+    <!-- Education -->
+    <div class="mb-16">
+      <h2 class="font-display text-3xl text-text-primary mb-8">Education</h2>
+      {education.map((edu) => (
+        <div class="pl-8 border-l-2 border-border-default relative">
+          <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary-500 border-2 border-bg-base"></div>
+          <h3 class="font-display text-2xl text-text-primary">{edu.institution}</h3>
+          <p class="text-text-secondary">{edu.degree}</p>
+          <p class="font-mono text-xs text-text-muted mt-1 mb-3">{edu.period}</p>
+          {edu.grade && (
+            <p class="text-sm text-primary-500 font-medium mb-2">{edu.grade}</p>
+          )}
+          {edu.highlights && (
+            <ul class="space-y-1">
+              {edu.highlights.map((h) => (
+                <li class="text-sm text-text-tertiary flex items-start gap-2">
+                  <span class="text-primary-500 mt-1 flex-shrink-0">&#8250;</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Skills -->
+    <div class="mb-16">
+      <h2 class="font-display text-3xl text-text-primary mb-8">Skills</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        {skills.map((category) => (
+          <div class="p-5 border border-border-default rounded-xl bg-bg-surface/30">
+            <h3 class="font-mono text-xs uppercase tracking-wider text-primary-500 mb-3">
+              {category.category}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {category.items.map((item) => (
+                <span class="px-3 py-1 text-sm bg-bg-elevated text-text-secondary rounded-md border border-border-default">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

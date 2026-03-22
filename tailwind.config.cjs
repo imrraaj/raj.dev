@@ -1,50 +1,38 @@
 /** @type {import('tailwindcss').Config} */
 
-// CENTRALIZED COLOR SCHEME
-// Change these values to instantly update your entire site's color scheme
 const colorScheme = {
-	// Primary brand color - used for accents, highlights, and interactive elements (cold orange)
-	primary: {
-		1: '#d4834f',    // Light - for highlights and hover states
-		2: '#b86d3d',    // Main - primary brand color (muted warm-cool orange)
-		3: '#9a5a2f',    // Dark - for active states and emphasis
-		
-		// Legacy support for existing code
-		50: '#d4834f',
-		100: '#d4834f',
-		200: '#d4834f',
-		300: '#d4834f',
-		400: '#d4834f',
-		500: '#b86d3d',
-		600: '#9a5a2f',
-		700: '#9a5a2f',
-		800: '#9a5a2f',
-		900: '#9a5a2f',
-		950: '#9a5a2f',
+	// Accent — refined amber-copper
+	accent: {
+		light: '#e8a06a',
+		main: '#cc7d3a',
+		dark: '#a86228',
 	},
-	// Background colors - dark theme
-	background: {
-		primary: '#09090b',    // Main background (zinc-950)
-		secondary: '#18181b',  // Secondary background (zinc-900)
-		tertiary: '#27272a',   // Cards/elevated surfaces (zinc-800)
-		hover: '#3f3f46',      // Hover states (zinc-700)
-		border: '#3f3f46',     // Border color (zinc-700)
-		borderLight: '#52525b', // Light border (zinc-600)
+	// Backgrounds — blue-tinted darks
+	bg: {
+		base: '#0a0c10',
+		surface: '#12151c',
+		elevated: '#1a1e28',
+		overlay: '#252a36',
 	},
-	// Text colors
+	// Borders
+	border: {
+		default: '#2a3040',
+		light: '#3a4258',
+	},
+	// Text — warm off-whites
 	text: {
-		primary: '#fafafa',    // Main text (zinc-50)
-		secondary: '#e4e4e7',  // Secondary text (zinc-200)
-		tertiary: '#d4d4d8',   // Tertiary text (zinc-300)
-		muted: '#a1a1aa',      // Muted text (zinc-400)
-		disabled: '#71717a',   // Disabled text (zinc-500)
+		primary: '#f0ece8',
+		secondary: '#c8c2ba',
+		tertiary: '#9a9490',
+		muted: '#6b6560',
+		disabled: '#4a4540',
 	},
-	// Code block colors
+	// Code blocks
 	code: {
-		background: '#27272a', // Code background (zinc-800)
-		text: '#fafafa',       // Code text
-		border: '#3f3f46',     // Code border
-	}
+		bg: '#1a1e28',
+		text: '#f0ece8',
+		border: '#2a3040',
+	},
 };
 
 module.exports = {
@@ -52,28 +40,55 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				// Simplified color palette using the centralized scheme
-				primary: colorScheme.primary,
-				brand: colorScheme.primary[500], // Quick access to main brand color
-				accent: colorScheme.primary[500], // Legacy support
-				
-				// Semantic color names for easy theming
-				'bg-primary': colorScheme.background.primary,
-				'bg-secondary': colorScheme.background.secondary,
-				'bg-tertiary': colorScheme.background.tertiary,
-				'bg-hover': colorScheme.background.hover,
-				'bg-border': colorScheme.background.border,
-				'bg-border-light': colorScheme.background.borderLight,
-				
+				// Accent scale (used as primary-*)
+				'primary': {
+					50: colorScheme.accent.light,
+					100: colorScheme.accent.light,
+					200: colorScheme.accent.light,
+					300: colorScheme.accent.light,
+					400: colorScheme.accent.light,
+					500: colorScheme.accent.main,
+					600: colorScheme.accent.dark,
+					700: colorScheme.accent.dark,
+					800: colorScheme.accent.dark,
+					900: colorScheme.accent.dark,
+					950: colorScheme.accent.dark,
+				},
+				accent: colorScheme.accent.main,
+
+				// Semantic backgrounds
+				'bg-base': colorScheme.bg.base,
+				'bg-surface': colorScheme.bg.surface,
+				'bg-elevated': colorScheme.bg.elevated,
+				'bg-overlay': colorScheme.bg.overlay,
+
+				// Legacy aliases (used in existing code)
+				'bg-primary': colorScheme.bg.base,
+				'bg-secondary': colorScheme.bg.surface,
+				'bg-tertiary': colorScheme.bg.elevated,
+				'bg-hover': colorScheme.bg.overlay,
+				'bg-border': colorScheme.border.default,
+				'bg-border-light': colorScheme.border.light,
+
+				// Semantic text
 				'text-primary': colorScheme.text.primary,
 				'text-secondary': colorScheme.text.secondary,
 				'text-tertiary': colorScheme.text.tertiary,
 				'text-muted': colorScheme.text.muted,
+				'text-disabled': colorScheme.text.disabled,
+
+				// Border
+				'border-default': colorScheme.border.default,
+				'border-light': colorScheme.border.light,
 			},
 			fontFamily: {
-				'primary': ['Schibsted Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
-				'secondary': ['Schibsted Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
-				'mono': ['Iosevka', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
+				'display': ['"Instrument Serif"', 'Georgia', 'serif'],
+				'body': ['"Space Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
+				'mono': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+				'code': ['"Iosevka"', '"JetBrains Mono"', 'Consolas', 'Monaco', 'monospace'],
+				// Legacy aliases
+				'primary': ['"Space Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
+				'secondary': ['"Space Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
 			},
 			fontSize: {
 				'xs': '0.75rem',
@@ -86,17 +101,21 @@ module.exports = {
 				'4xl': '2.25rem',
 				'5xl': '3rem',
 				'6xl': '3.75rem',
+				'7xl': '4.5rem',
 			},
-			// Add smooth transitions globally
 			transitionProperty: {
 				'colors': 'color, background-color, border-color, text-decoration-color, fill, stroke',
 			},
 			transitionDuration: {
 				'DEFAULT': '200ms',
 			},
+			borderRadius: {
+				'xl': '0.75rem',
+				'2xl': '1rem',
+			},
 		},
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
 	],
-}
+};

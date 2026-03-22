@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layout/PageLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("misc");
+  return posts
+    .filter((post) => post.data.published)
+    .map((post) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<PageLayout title={post.data.title}>
+  <article class="py-8">
+    <Breadcrumbs
+      items={[
+        { label: "Home", href: "/" },
+        { label: "Misc", href: "/misc" },
+        { label: post.data.title },
+      ]}
+    />
+
+    <header class="mb-8 pb-6 border-b border-border-default">
+      <h1 class="font-display text-4xl text-text-primary">{post.data.title}</h1>
+    </header>
+
+    <div
+      class="prose prose-lg text-md text-left min-w-full
+        prose-headings:font-display prose-headings:font-normal
+        prose-headings:text-text-primary
+        prose-p:text-text-secondary prose-p:leading-relaxed
+        prose-a:text-primary-400 prose-a:no-underline
+        prose-a:hover:text-primary-300
+        prose-li:text-text-secondary
+        prose-blockquote:border-l-primary-500
+      "
+    >
+      <Content />
+    </div>
+  </article>
+</PageLayout>

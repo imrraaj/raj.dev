@@ -1,0 +1,23 @@
+---
+import Section from "./Section.astro";
+import { skills } from "../data/skills";
+---
+
+<Section title="Tools & Technologies">
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {skills.map((category) => (
+      <div class="p-5 border border-border-default rounded-xl bg-bg-surface/30">
+        <h3 class="font-mono text-xs uppercase tracking-wider text-primary-500 mb-3">
+          {category.category}
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {category.items.map((item) => (
+            <span class="text-sm text-text-secondary">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Section>

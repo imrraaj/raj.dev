@@ -1,21 +1,20 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, AUTHOR } from "../config";
 
-const { 
-  title: pageTitle, 
-  description = SITE_DESCRIPTION, 
-  image = "/landscape.jpg", 
-  noIndex = false, 
+const {
+  title: pageTitle,
+  description = SITE_DESCRIPTION,
+  image = "/blog-cover.png",
+  noIndex = false,
   canonical,
   type = "website",
   publishedTime,
   modifiedTime,
-  keywords = "Raj Patel, Software Developer, Web Development, Programming, Blog"
+  keywords = "Raj Patel, Software Developer, Web Development, Programming, Blog",
+  wide = false,
 } = Astro.props;
 
 let title = pageTitle;
@@ -25,44 +24,46 @@ if (!title) {
   title += " | " + SITE_TITLE;
 }
 
-const siteURL = Astro.site ? Astro.site.href : "https://rajpa.tel";
-const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site || "https://rajpa.tel").href;
-const imageURL = new URL(image, Astro.site || "https://rajpa.tel").href;
+const siteURL = Astro.site ? Astro.site.href : SITE_URL;
+const canonicalURL =
+  canonical || new URL(Astro.url.pathname, Astro.site || SITE_URL).href;
+const imageURL = new URL(image, Astro.site || SITE_URL).href;
 
-// Structured data for the website
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": SITE_TITLE,
-  "url": siteURL,
-  "description": SITE_DESCRIPTION,
-  "author": {
+  name: SITE_TITLE,
+  url: siteURL,
+  description: SITE_DESCRIPTION,
+  author: {
     "@type": "Person",
-    "name": "Raj Patel",
-    "url": "https://rajpa.tel",
-    "jobTitle": "Software Developer",
-    "sameAs": [
-      "https://github.com/imrraaj",
-      "https://x.com/imrraaj"
-    ]
+    name: AUTHOR.name,
+    url: SITE_URL,
+    jobTitle: AUTHOR.title,
+    sameAs: [
+      `https://github.com/${AUTHOR.github}`,
+      `https://x.com/${AUTHOR.twitter}`,
+    ],
   },
-  "inLanguage": "en-US"
+  inLanguage: "en-US",
 };
 
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Raj Patel",
-  "url": "https://rajpa.tel",
-  "image": "https://rajpa.tel/header.jpg",
-  "jobTitle": "Software Developer",
-  "description": "Software Developer interested in web development, programming, philosophy, and movies",
-  "sameAs": [
-    "https://github.com/imrraaj",
-    "https://x.com/imrraaj"
+  name: AUTHOR.name,
+  url: SITE_URL,
+  image: `${SITE_URL}/header.jpg`,
+  jobTitle: AUTHOR.title,
+  description: AUTHOR.bio,
+  sameAs: [
+    `https://github.com/${AUTHOR.github}`,
+    `https://x.com/${AUTHOR.twitter}`,
   ],
-  "email": "rajpatel10953@gmail.com"
+  email: AUTHOR.email,
 };
+
+const containerClass = wide ? "max-w-6xl" : "max-w-4xl";
 ---
 
 <!doctype html>
@@ -77,15 +78,25 @@ const personSchema = {
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="author" content="Raj Patel" />
+    <meta name="author" content={AUTHOR.name} />
     <meta name="keywords" content={keywords} />
-    <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    <meta
+      name="robots"
+      content={noIndex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+    />
     <link rel="canonical" href={canonicalURL} />
-    
+
     <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} RSS Feed`} href={new URL("rss.xml", Astro.site || "https://rajpa.tel")} />
-    
-    <!-- Open Graph / Facebook -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${SITE_TITLE} RSS Feed`}
+      href={new URL("rss.xml", Astro.site || SITE_URL)}
+    />
+
+    <!-- Open Graph -->
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
@@ -97,33 +108,37 @@ const personSchema = {
     <meta property="og:locale" content="en_US" />
     {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-    <meta property="article:author" content="Raj Patel" />
+    <meta property="article:author" content={AUTHOR.name} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@imrraaj" />
-    <meta name="twitter:creator" content="@imrraaj" />
+    <meta name="twitter:site" content={`@${AUTHOR.twitter}`} />
+    <meta name="twitter:creator" content={`@${AUTHOR.twitter}`} />
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageURL} />
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="theme-color" content="#09090b" />
-    <meta name="msapplication-TileColor" content="#09090b" />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#0a0c10" />
+    <meta name="msapplication-TileColor" content="#0a0c10" />
     <meta name="format-detection" content="telephone=no" />
-    
-    <!-- Preconnect to external domains -->
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Structured Data (JSON-LD) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
-  <body class="px-4 max-w-3xl mx-auto bg-bg-primary text-text-secondary antialiased">
+  <body class="px-4 max-w-6xl mx-auto bg-bg-base text-text-secondary antialiased">
     <Header />
-    <main class="min-h-[500px]">
+    <main class={`min-h-[500px] ${containerClass} mx-auto`}>
       <slot />
     </main>
     <Footer />

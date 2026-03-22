@@ -1,31 +1,30 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { parseDate } from "../utils/date";
 
 export async function GET(context) {
-	const postImportResults = import.meta.glob("./blog/*.md", { eager: true });
-	const posts = Object.values(postImportResults)
-		.filter(post => post.frontmatter && post.frontmatter.published)
-		.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+  const posts = await getCollection("blog");
+  const publishedPosts = posts
+    .filter((post) => post.data.published)
+    .sort(
+      (a, b) =>
+        parseDate(b.data.date).getTime() - parseDate(a.data.date).getTime()
+    );
 
-	return rss({
-		stylesheet: "/rss/styles.xsl",
-		title: SITE_TITLE,
-		description: SITE_DESCRIPTION,
-		site: context.site,
-		items: posts.map(post => {
-			const [day, month, year] = post.frontmatter.date.split("-").map(Number);
-			const pubDate = new Date(year, month - 1, day);
-			
-			return {
-				link: post.url || `/blog/${post.file.split('/').pop().replace('.md', '')}`,
-				pubDate: pubDate,
-				title: post.frontmatter.title,
-				description: post.frontmatter.description,
-				author: 'Raj Patel',
-				categories: post.frontmatter.tags ? post.frontmatter.tags.split(', ') : [],
-			};
-		}),
-		customData: `<language>en-us</language>`,
-	});
+  return rss({
+    stylesheet: "/rss/styles.xsl",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    site: context.site,
+    items: publishedPosts.map((post) => ({
+      link: `/blog/${post.slug}`,
+      pubDate: parseDate(post.data.date),
+      title: post.data.title,
+      description: post.data.description,
+      author: "Raj Patel",
+      categories: post.data.tags,
+    })),
+    customData: `<language>en-us</language>`,
+  });
 }
