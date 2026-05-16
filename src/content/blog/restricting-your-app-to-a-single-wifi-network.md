@@ -4,7 +4,6 @@ date: 22-03-2026
 description: Locking down a Next.js app to a single WiFi network using free DDNS and 40 lines of middleware.
 published: true
 tags: ["Next.js", "Networking", "DDNS"]
-image: "/blog-cover.png"
 ---
 
 

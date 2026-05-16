@@ -3,7 +3,6 @@ title: At the center of universe
 date: 30-07-2024
 description: Let's just discuss ideas.
 tags: ["Ideas", "Thinking"]
-image: "/blog-cover.png"
 published: false
 ---
 

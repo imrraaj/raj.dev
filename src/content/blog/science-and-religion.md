@@ -4,7 +4,6 @@ date: 01-06-2023
 description: ""
 published: false
 tags: []
-image: "/blog-cover.png"
 ---
 
 Why science is wide spread wheareas for a religion to spread it took hundred of years and science did it in just over 200 years that too worldwide

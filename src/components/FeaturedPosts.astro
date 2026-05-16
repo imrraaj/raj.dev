@@ -2,6 +2,7 @@
 import Section from "./Section.astro";
 import BlogCard from "./BlogCard.astro";
 import { getCollection } from "astro:content";
+import { getEntrySlug } from "../utils/content";
 import { parseDate } from "../utils/date";
 
 const allPosts = await getCollection("blog");
@@ -19,7 +20,7 @@ const posts = allPosts
         description={post.data.description}
         date={post.data.date}
         tags={post.data.tags}
-        slug={post.slug}
+        slug={getEntrySlug(post)}
         body={post.body}
       />
     ))}

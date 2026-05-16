@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { getEntrySlug } from "../utils/content";
 import { parseDate } from "../utils/date";
 
 export async function GET(context) {
@@ -18,7 +19,7 @@ export async function GET(context) {
     description: SITE_DESCRIPTION,
     site: context.site,
     items: publishedPosts.map((post) => ({
-      link: `/blog/${post.slug}`,
+      link: `/blog/${getEntrySlug(post)}`,
       pubDate: parseDate(post.data.date),
       title: post.data.title,
       description: post.data.description,

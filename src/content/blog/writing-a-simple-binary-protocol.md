@@ -4,7 +4,6 @@ date: 16-04-2026
 description: A deep dive into designing and implementing a simple binary protocol for a TCP-based queue system in Go. We explore framing, validation, and the challenges of working with raw bytes on the wire. 
 published: true
 tags: ["Golang", "Client-Server", "Protocols"]
-image: "/blog-cover.png"
 ---
 
 Lately I've been thinking a lot about protocols. Not the huge ones with RFCs, committees, and ten years of backwards compatibility baggage. Just small protocols. The kind where you control both sides, you can keep the rules in your head, and you get to answer a fun question: what is the smallest binary format that still feels honest?

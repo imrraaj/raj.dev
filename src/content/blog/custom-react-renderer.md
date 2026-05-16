@@ -4,7 +4,6 @@ date: 03-08-2025
 description: Why? Because I felt like it.
 published: true
 tags: ["react", "javascript", "internals"]
-image: "/blog-cover.png"
 ---
 
 The other day, I was watching [Tsoding](https://twitch.tv/tsoding), and a huge shoutout to him. I'm a big fan—his streams are informative, entertaining, and have taught me so many things. Watching him code live has made programming feel more fun. He was streaming about creating a custom React renderer, and seeing him implement it, I thought, "Wait, I can do that too\!" The idea felt exciting and challenging.

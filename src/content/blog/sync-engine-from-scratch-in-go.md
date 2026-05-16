@@ -4,7 +4,6 @@ date: 31-01-2026
 description: Why? Because I felt like it.
 published: true
 tags: ["Golang", "Linux", "Sync"]
-image: "/blog-cover.png"
 ---
 
 

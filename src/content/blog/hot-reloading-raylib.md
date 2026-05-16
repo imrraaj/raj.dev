@@ -4,7 +4,6 @@ date: 12-08-2025
 description: Why? Because I felt like it.
 published: true
 tags: ["C", "raylib"]
-image: "/blog-cover.png"
 ---
 ## Pretext
 

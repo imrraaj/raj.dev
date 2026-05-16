@@ -3,6 +3,7 @@ import PageLayout from "../../layout/PageLayout.astro";
 import BlogHeroCard from "../../components/BlogHeroCard.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import { getCollection } from "astro:content";
+import { getEntrySlug } from "../../utils/content";
 import { parseDate } from "../../utils/date";
 
 const allPosts = await getCollection("blog");
@@ -34,7 +35,7 @@ const [heroPost, ...restPosts] = posts;
           description={heroPost.data.description}
           date={heroPost.data.date}
           tags={heroPost.data.tags}
-          slug={heroPost.slug}
+          slug={getEntrySlug(heroPost)}
           body={heroPost.body}
           image={heroPost.data.image}
         />
@@ -49,7 +50,7 @@ const [heroPost, ...restPosts] = posts;
             description={post.data.description}
             date={post.data.date}
             tags={post.data.tags}
-            slug={post.slug}
+            slug={getEntrySlug(post)}
             body={post.body}
             image={post.data.image}
           />

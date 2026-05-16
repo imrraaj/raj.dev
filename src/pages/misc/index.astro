@@ -1,6 +1,7 @@
 ---
 import PageLayout from "../../layout/PageLayout.astro";
 import { getCollection } from "astro:content";
+import { getEntrySlug } from "../../utils/content";
 import { parseDate } from "../../utils/date";
 
 const allPosts = await getCollection("misc");
@@ -20,7 +21,7 @@ const posts = allPosts
       {posts.map((post) => (
         <li>
           <a
-            href={`/misc/${post.slug}`}
+            href={`/misc/${getEntrySlug(post)}`}
             class="group flex items-center gap-4 p-4 rounded-xl border border-border-default hover:border-primary-500/50 transition-all"
           >
             <span class="font-display text-xl text-text-primary group-hover:text-primary-400 transition-colors">

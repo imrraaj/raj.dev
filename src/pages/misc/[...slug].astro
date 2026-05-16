@@ -1,20 +1,21 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import PageLayout from "../../layout/PageLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { getEntrySlug } from "../../utils/content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("misc");
   return posts
     .filter((post) => post.data.published)
     .map((post) => ({
-      params: { slug: post.slug },
+      params: { slug: getEntrySlug(post) },
       props: { post },
     }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <PageLayout title={post.data.title}>

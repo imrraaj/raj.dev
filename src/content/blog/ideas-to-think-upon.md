@@ -4,7 +4,6 @@ date: 12-07-2023
 description: Let's just discuss ideas.
 published: true
 tags: ["ideation"]
-image: "/blog-cover.png"
 ---
 
 If you are following my posts then you might know I talked about the podcast episode I was listening to and I enjoyed it but I forgot all of that? Well I have finished and here I am writing the ideas that inspired me to take a look at them in the future again. This might going to be bunch of _one-liners_ but I know you'll take that.

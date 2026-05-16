@@ -3,7 +3,6 @@ title: Lessons from Good Will Hunting.
 date: 17-09-2023
 published: false
 description: ""
-image: "/blog-cover.png"
 ---
 
 ## Preface:

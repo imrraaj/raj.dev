@@ -1,6 +1,7 @@
 ---
 import TagBadge from "./TagBadge.astro";
 import { formatDateLong } from "../utils/date";
+import { getBlogCoverImage } from "../utils/blog-cover";
 
 interface Props {
   title: string;
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const { title, date, readingTime, tags = [], publishedISO, image } = Astro.props;
-const coverImage = image || "/blog-cover.png";
+const coverImage = getBlogCoverImage(image, title);
 ---
 
 <header class="mb-10">

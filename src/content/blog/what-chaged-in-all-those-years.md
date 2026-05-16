@@ -3,7 +3,6 @@ title: What changed in me over all these years.
 date: 23-09-2023
 published: false
 description: ""
-image: "/blog-cover.png"
 ---
 
 Well, What started as a mental conversation with one of my old friend, who now have completely overtook me, total contact loss. The conversation was going something like this.

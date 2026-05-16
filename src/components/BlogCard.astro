@@ -1,6 +1,7 @@
 ---
 import TagBadge from "./TagBadge.astro";
 import { formatDate } from "../utils/date";
+import { getBlogCoverImage } from "../utils/blog-cover";
 import { getReadingTime } from "../utils/reading-time";
 
 interface Props {
@@ -15,7 +16,7 @@ interface Props {
 
 const { title, description, date, tags = [], slug, body = "", image } = Astro.props;
 const readingTime = getReadingTime(body);
-const coverImage = image || "/blog-cover.png";
+const coverImage = getBlogCoverImage(image, slug || title);
 ---
 
 <article class="group border border-border-default rounded-xl overflow-hidden bg-bg-surface/50 hover:border-primary-500/50 hover:bg-bg-surface transition-all duration-300">

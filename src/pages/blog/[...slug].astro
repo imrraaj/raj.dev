@@ -1,9 +1,11 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import PageLayout from "../../layout/PageLayout.astro";
 import PostHeader from "../../components/PostHeader.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import RelatedPosts from "../../components/RelatedPosts.astro";
+import { getBlogCoverImage } from "../../utils/blog-cover";
+import { getEntrySlug } from "../../utils/content";
 import { getISODate } from "../../utils/date";
 import { getReadingTime } from "../../utils/reading-time";
 import { AUTHOR, SITE_URL } from "../../config";
@@ -13,31 +15,33 @@ export async function getStaticPaths() {
   return posts
     .filter((post) => post.data.published)
     .map((post) => ({
-      params: { slug: post.slug },
+      params: { slug: getEntrySlug(post) },
       props: { post },
     }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
+const slug = getEntrySlug(post);
 
 const publishedISO = getISODate(post.data.date);
 const modifiedISO = post.data.modified
   ? getISODate(post.data.modified)
   : publishedISO;
 const readingTime = getReadingTime(post.body || "");
+const coverImage = getBlogCoverImage(post.data.image, slug);
 
 // Find related posts by matching tags
 const allPosts = await getCollection("blog");
 const relatedPosts = allPosts
   .filter(
     (p) =>
-      p.slug !== post.slug &&
+      getEntrySlug(p) !== slug &&
       p.data.published &&
       p.data.tags.some((t) => post.data.tags.includes(t))
   )
   .slice(0, 2)
-  .map((p) => ({ title: p.data.title, slug: p.slug, date: p.data.date }));
+  .map((p) => ({ title: p.data.title, slug: getEntrySlug(p), date: p.data.date }));
 
 const blogPostSchema = {
   "@context": "https://schema.org",
@@ -62,12 +66,10 @@ const blogPostSchema = {
   dateModified: modifiedISO,
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `${SITE_URL}/blog/${post.slug}`,
+    "@id": `${SITE_URL}/blog/${slug}`,
   },
-  url: `${SITE_URL}/blog/${post.slug}`,
-  image: post.data.image
-    ? `${SITE_URL}${post.data.image}`
-    : `${SITE_URL}/blog-cover.png`,
+  url: `${SITE_URL}/blog/${slug}`,
+  image: `${SITE_URL}${coverImage}`,
   keywords: post.data.tags.join(", "),
   wordCount: (post.body || "").split(/\s+/).length,
   articleSection: "Blog",
@@ -78,8 +80,8 @@ const blogPostSchema = {
 <PageLayout
   title={post.data.title}
   description={post.data.description || `Read ${post.data.title} by ${AUTHOR.name}`}
-  canonical={`${SITE_URL}/blog/${post.slug}`}
-  image={post.data.image || "/blog-cover.png"}
+  canonical={`${SITE_URL}/blog/${slug}`}
+  image={coverImage}
   type="article"
   publishedTime={publishedISO}
   modifiedTime={modifiedISO}
@@ -110,7 +112,7 @@ const blogPostSchema = {
       readingTime={readingTime}
       tags={post.data.tags}
       publishedISO={publishedISO}
-      image={post.data.image}
+      image={coverImage}
     />
 
     <div
