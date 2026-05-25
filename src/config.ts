@@ -19,6 +19,7 @@ export const NAVIGATION = [
   { text: "Home", link: "/" },
   { text: "Blog", link: "/blog" },
   { text: "Projects", link: "/projects" },
+  { text: "Now", link: "/now" },
   { text: "About", link: "/about" },
 ];
 

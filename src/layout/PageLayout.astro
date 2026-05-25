@@ -138,9 +138,9 @@ const containerClass = wide ? "max-w-6xl" : "max-w-4xl";
     <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
-  <body class="px-4 max-w-6xl mx-auto bg-bg-base text-text-secondary antialiased">
+  <body class="max-w-6xl mx-auto bg-bg-base text-text-secondary antialiased">
     <Header />
-    <main class={`min-h-[500px] ${containerClass} mx-auto`}>
+    <main class={`min-h-[500px] px-4 ${containerClass} mx-auto`}>
       <slot />
     </main>
     <Footer />
